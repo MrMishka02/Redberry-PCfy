@@ -1,1 +1,0 @@
-https://mrmishka02.github.io/first_react_app/blob/main/public/index.html
