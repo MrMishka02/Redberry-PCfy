@@ -1,16 +1,10 @@
-import logo from './logo.png';
-import wall from './wall.png';
 import './App.css';
+import Landing from './components/Landing/Landing';
 
 function App() {
   return (
     <div className="App">
-        <img src={logo} className="App-logo" alt="logo" />
-        <img src={wall} className="wall" alt="Wallpaper" />
-        <div className='btnSet'>
-          <button className='landBtn'>ᲩᲐᲜᲐᲬᲔᲠᲘᲡ ᲓᲐᲛᲐᲢᲔᲑᲐ</button>
-          <button className='landBtn'>ᲩᲐᲜᲐᲬᲔᲠᲔᲑᲘᲡ ᲡᲘᲐ</button>
-        </div>
+      <Landing />
     </div>
   );
 }
