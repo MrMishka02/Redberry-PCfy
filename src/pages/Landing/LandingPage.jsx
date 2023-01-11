@@ -4,10 +4,10 @@ import Button from '../../components/Button/Button';
 
 function Landing() {
   return (
-    <div className="App">
-      <Logo  />
+    <div className="w-full h-screen flex flex-col items-center">
+      <Logo />
       <Wall />
-      <div className='btnSet'>
+      <div className='flex flex-col items-center w-6 mt-16'>
         <Button text={"ᲩᲐᲜᲐᲬᲔᲠᲘᲡ ᲓᲐᲛᲐᲢᲔᲑᲐ"} />
         <Button text={"ᲩᲐᲜᲐᲬᲔᲠᲔᲑᲘᲡ ᲡᲘᲐ"} />
       </div>

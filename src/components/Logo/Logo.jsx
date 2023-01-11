@@ -2,7 +2,7 @@ import logo from './logo.png';
 
 function Logo() {
   return (
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={logo} className="w-[112px] h-[18px] mt-10" alt="logo" />
   );
 }
 

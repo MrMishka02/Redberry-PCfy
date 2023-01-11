@@ -1,10 +1,9 @@
-import './App.css';
 import Landing from './pages/Landing/LandingPage';
-// import PersonalInfo from './pages/InfoLaptop/PersonalInfo';
+//import PersonalInfo from './pages/InfoLaptop/PersonalInfo';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Landing />
       {/* <PersonalInfo /> */}
     </div>

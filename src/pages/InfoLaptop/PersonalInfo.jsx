@@ -5,9 +5,9 @@ import HeadLabel from '../../components/Label/HeadLabel';
 
 function PersonalInfo(){
     return (
-        <div>
+        <div className='wrapper'>
             <CircleButton />
-            <div className='headLabel'>
+            <div className='headLabelDiv'>
                 <HeadLabel text={"თანამშრომლის ინფო"} />
                 <HeadLabel text={"ლეპტოპის მახასიათებლები"} />
             </div>
