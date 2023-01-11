@@ -1,11 +1,11 @@
-import Landing from './pages/Landing/LandingPage';
-//import PersonalInfo from './pages/InfoLaptop/PersonalInfo';
+// import Landing from './pages/Landing/LandingPage';
+import PersonalInfo from './pages/InfoLaptop/PersonalInfo';
 
 function App() {
   return (
     <div>
-      <Landing />
-      {/* <PersonalInfo /> */}
+      {/* <Landing /> */}
+      <PersonalInfo />
     </div>
   );
 }
