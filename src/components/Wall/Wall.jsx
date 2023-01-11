@@ -1,5 +1,5 @@
-import wall from './wall.png';
-import smallWall from './smallWall.png';
+import wall from '../../assets/img/wall.png';
+import smallWall from '../../assets/img/smallWall.png';
 
 const  Wall = () => {
   return (
