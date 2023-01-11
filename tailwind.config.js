@@ -18,7 +18,11 @@ module.exports = {
       'sm': {'max': '639px'},
       // => @media (max-width: 639px) { ... }
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        'sans': ['Helvetica Neue']
+      },
+    },
   },
   plugins: [],
 }
