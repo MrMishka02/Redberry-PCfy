@@ -1,9 +1,16 @@
-
-function HeadLabel({text}) {
-    return (
-        <p className="w-[18.1rem] h-[1.5rem] text-[#232323]
-        text-[1.31rem] leading-[1.5rem] font-[700]">{ text }</p>
-    );
+function HeadLabel({ text, test }) {
+  return (
+    <div className="flex flex-col items-center">
+      <p
+        className="h-[1.5rem] w-[18.1rem] select-none
+            text-center text-[1.31rem] font-[700] leading-[1.5rem]
+            text-[#232323] hover:cursor-pointer"
+      >
+        {text}
+      </p>
+      {test && <p className="mt-3 h-1 w-[11.56rem] bg-black"></p>}
+    </div>
+  );
 }
 
-export default HeadLabel
+export default HeadLabel;
