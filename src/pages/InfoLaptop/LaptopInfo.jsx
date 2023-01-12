@@ -14,7 +14,7 @@ function PersonalInfo() {
   return (
     <>
       <CircleButton />
-      <div className="mt-[5.7rem] flex justify-center">
+      <div className="mt-[5.7rem] flex justify-center lg:ml-[18rem] md:ml-[28rem] sm:ml-[40rem]">
         <HeadLabel text={"თანამშრომლის ინფო"} test={true} />
         <HeadLabel text={"ლეპტოპის მახასიათებლები"} test={false} />
       </div>
@@ -95,8 +95,10 @@ function PersonalInfo() {
             <RadioButton value={"used"} name={"condition"} text={"მეორადი"} />
           </div>
         </div>
-        <div className="flex justify-between items-center w-[55rem] relative top-[4.7rem] left-[10.9rem]">
-          <p className="text-[1.125rem] leading-5 font-medium text-[#62A1EB]">უკან</p>
+        <div className="relative top-[4.7rem] left-[10.9rem] flex w-[55rem] items-center justify-between">
+          <p className="text-[1.125rem] font-medium leading-5 text-[#62A1EB]">
+            უკან
+          </p>
           <div className="w-[14rem]">
             <ButtonSmall text={"დამახსოვრება"} />
           </div>
