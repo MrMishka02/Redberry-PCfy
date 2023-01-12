@@ -2,10 +2,14 @@ import CircleButton from "../../components/Button/CircleButton";
 import HeadLabel from "../../components/Label/HeadLabel";
 import InfoLabel from "../../components/Label/InfoLabel";
 import InfoLabelBig from "../../components/Label/InfoLabelBig";
-import Select from "../../components/Select/Select";
+import InfoLabelSmall from "../../components/Label/InfoLabelSmall";
+import SelectSmall from "../../components/Select/SelectSmall";
+import SelectMedium from "../../components/Select/SelectMedium";
 import ButtonSmall from "../../components/Button/ButtonSmall";
 import LogoBottom from "../../components/Logo/LogoBottom";
 import FileUpload from "../../components/FileUpload/FileUpload";
+import Line from "../../components/Line/Line";
+import RadioButton from "../../components/Radio/RadioButton";
 
 function PersonalInfo() {
   return (
@@ -17,40 +21,89 @@ function PersonalInfo() {
       </div>
       <div className="m-auto mt-6 h-[98.75rem] w-[76.6rem] rounded-[1.125rem] bg-[#FFFFFF]">
         <FileUpload />
-        <div className="relative top-[7.5rem] ml-[10.8rem] flex h-32 w-[71.8%] justify-between">
+        <div className="h-30 relative top-[7.2rem] ml-[10.8rem] flex w-[55rem] items-center justify-between">
           <InfoLabel
             text={"ლეპტოპის სახელი"}
             holder={"HP"}
             hint={"ლათინური ასოები, ციფრები, !@#$%^&*()_+="}
           />
-          <Select choose={"თიმი"}></Select>
+          <SelectMedium choose={"ლეპტოპის ბრენდი"}></SelectMedium>
+        </div>
+        <div className="relative top-[10rem] left-[11rem] w-[55rem]">
+          <Line />
         </div>
         <div
-          className="ml-[11rem] mt-[8.8rem] flex h-[10.8rem] w-[54.875rem]
-        flex-col justify-between"
+          className="ml-[11rem] mt-[12rem] flex h-[10.8rem] w-[55rem]
+         items-center justify-between"
         >
-          <Select choose={"პოზიცია"}></Select>
+          <SelectSmall choose={"CPU"}></SelectSmall>
+          <InfoLabelSmall
+            text={"CPU-ს ბირთვი"}
+            holder={"14"}
+            hint={"მხოლოდ ციფრები"}
+          />
+          <InfoLabelSmall
+            text={"CPU-ს ნაკადი"}
+            holder={"365"}
+            hint={"მხოლოდ ციფრები"}
+          />
+        </div>
+        <div className="relative top-[12rem] left-[11rem] w-[55rem]">
+          <Line />
         </div>
         <div
-          className="relative top-[3.2rem] ml-[10.8rem] flex h-[17.6rem]
-        w-[71.8%] flex-col justify-between"
+          className="relative top-[1.4rem] ml-[10.8rem] flex h-[7.6rem]
+        w-[71.8%] items-center justify-between"
         >
-          <InfoLabelBig
-            text={"მეილი"}
-            holder={"grish666@redberry.ge"}
-            hint={"უნდა მთავრდებოდეს @redberry.ge-ით"}
+          <InfoLabel
+            text={"ლეპტოპის RAM (GB)"}
+            holder={"16"}
+            hint={"მხოლოდ ციფრები"}
           />
-          <InfoLabelBig
-            text={"ტელეფონის ნომერი"}
-            holder={"+995 598 00 07 01"}
-            hint={"უნდა აკმაყოფილებდეს ქართული მობ-ნომრის ფორმატს"}
+          <div>
+            <p
+              className="relative mb-6 mt-[-3.2rem] ml-0 text-[1.125rem] font-medium
+          text-[#000000] "
+            >
+              მეხსიერების ტიპი
+            </p>
+            <div className="mr-[10.6rem] flex h-full w-[15rem] justify-between">
+              <RadioButton value={"SSD"} name={"memory"} text={"SSD"} />
+              <RadioButton value={"HDD"} name={"memory"} text={"HDD"} />
+            </div>
+          </div>
+        </div>
+        <div className="relative top-[7.6rem] ml-[10.8rem] flex h-32 w-[71.8%] justify-between">
+          <InfoLabel
+            text={"შეძენის რიცხვი (არჩევითი)"}
+            holder={"დდ / თთ / წწწწ"}
+          />
+          <InfoLabel
+            text={"ლეპტოპის ფასი"}
+            holder={"0000"}
+            hint={"მხოლოდ ციფრები"}
           />
         </div>
-        <div className="mt-[9.3rem] ml-[54.7rem]">
-          <ButtonSmall text={"შემდეგი"} />
+        <div className="relative left-[10.8rem]">
+          <p
+            className="relative mb-6 mt-[10rem] text-[1.125rem] font-medium
+          text-[#000000] "
+          >
+            ლეპტოპის მდგომარეობა
+          </p>
+          <div className="flex h-full w-[15rem] justify-between">
+            <RadioButton value={"new"} name={"condition"} text={"ახალი"} />
+            <RadioButton value={"used"} name={"condition"} text={"მეორადი"} />
+          </div>
+        </div>
+        <div className="flex justify-between items-center w-[55rem] relative top-[4.7rem] left-[10.9rem]">
+          <p className="text-[1.125rem] leading-5 font-medium text-[#62A1EB]">უკან</p>
+          <div className="w-[14rem]">
+            <ButtonSmall text={"დამახსოვრება"} />
+          </div>
         </div>
       </div>
-      <div className="mt-[4.3rem] mb-6 flex w-full justify-center">
+      <div className="mt-[3rem] mb-6 flex w-full justify-center">
         <LogoBottom />
       </div>
     </>
