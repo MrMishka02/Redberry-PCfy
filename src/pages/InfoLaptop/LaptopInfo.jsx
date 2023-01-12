@@ -5,6 +5,7 @@ import InfoLabelBig from "../../components/Label/InfoLabelBig";
 import Select from "../../components/Select/Select";
 import ButtonSmall from "../../components/Button/ButtonSmall";
 import LogoBottom from "../../components/Logo/LogoBottom";
+import FileUpload from "../../components/FileUpload/FileUpload";
 
 function PersonalInfo() {
   return (
@@ -14,25 +15,20 @@ function PersonalInfo() {
         <HeadLabel text={"თანამშრომლის ინფო"} test={true} />
         <HeadLabel text={"ლეპტოპის მახასიათებლები"} test={false} />
       </div>
-
-      <div className="m-auto mt-6 h-[60.8rem] w-[76.6rem] rounded-[1.125rem] bg-[#FFFFFF]">
-        <div className="relative top-24 ml-[10.8rem] flex h-32 w-[71.8%] justify-between">
+      <div className="m-auto mt-6 h-[98.75rem] w-[76.6rem] rounded-[1.125rem] bg-[#FFFFFF]">
+        <FileUpload />
+        <div className="relative top-[7.5rem] ml-[10.8rem] flex h-32 w-[71.8%] justify-between">
           <InfoLabel
-            text={"სახელი"}
-            holder={"გრიშა"}
-            hint={"მინიმუმ 2 სიმბოლო, ქართული ასოები"}
+            text={"ლეპტოპის სახელი"}
+            holder={"HP"}
+            hint={"ლათინური ასოები, ციფრები, !@#$%^&*()_+="}
           />
-          <InfoLabel
-            text={"გვარი"}
-            holder={"ბაგრატიონი"}
-            hint={"მინიმუმ 2 სიმბოლო, ქართული ასოები"}
-          />
+          <Select choose={"თიმი"}></Select>
         </div>
         <div
           className="ml-[11rem] mt-[8.8rem] flex h-[10.8rem] w-[54.875rem]
         flex-col justify-between"
         >
-          <Select choose={"თიმი"}></Select>
           <Select choose={"პოზიცია"}></Select>
         </div>
         <div
@@ -50,7 +46,7 @@ function PersonalInfo() {
             hint={"უნდა აკმაყოფილებდეს ქართული მობ-ნომრის ფორმატს"}
           />
         </div>
-        <div className="w-[11rem] mt-[9.3rem] ml-[54.7rem]">
+        <div className="mt-[9.3rem] ml-[54.7rem]">
           <ButtonSmall text={"შემდეგი"} />
         </div>
       </div>

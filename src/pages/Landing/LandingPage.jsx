@@ -7,7 +7,7 @@ function Landing() {
     <div className="w-full h-screen flex flex-col items-center">
       <Logo />
       <Wall />
-      <div className='flex flex-col items-center w-6 mt-16 sm:mt-[8rem]'>
+      <div className='flex flex-col items-center w-[24.18rem] mt-16 sm:mt-[8rem]'>
         <Button text={"ᲩᲐᲜᲐᲬᲔᲠᲘᲡ ᲓᲐᲛᲐᲢᲔᲑᲐ"} />
         <Button text={"ᲩᲐᲜᲐᲬᲔᲠᲔᲑᲘᲡ ᲡᲘᲐ"} />
       </div>
