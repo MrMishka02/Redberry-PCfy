@@ -1,7 +1,6 @@
 import CircleButton from "../../components/Button/CircleButton";
 import HeadLabel from "../../components/Label/HeadLabel";
 import InfoLabel from "../../components/Label/InfoLabel";
-import InfoLabelBig from "../../components/Label/InfoLabelBig";
 import InfoLabelSmall from "../../components/Label/InfoLabelSmall";
 import SelectSmall from "../../components/Select/SelectSmall";
 import SelectMedium from "../../components/Select/SelectMedium";
