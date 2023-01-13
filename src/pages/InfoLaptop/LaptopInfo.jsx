@@ -9,27 +9,35 @@ import LogoBottom from "../../components/Logo/LogoBottom";
 import FileUpload from "../../components/FileUpload/FileUpload";
 import Line from "../../components/Line/Line";
 import RadioButton from "../../components/Radio/RadioButton";
+import { useNavigate } from "react-router-dom";
 
 function PersonalInfo() {
+  const navigate = useNavigate();
   return (
     <div>
       <CircleButton path={"/personal-info"} />
       <div className="mt-[5.7rem] flex justify-center lg:ml-[18rem] md:ml-[28rem] sm:ml-[40rem]">
-        <HeadLabel
-          path={"/personal-info"}
-          text={"თანამშრომლის ინფო"}
-          showLine={false}
-        />
-        <HeadLabel text={"ლეპტოპის მახასიათებლები"} showLine={true} />
+        <div>
+          <HeadLabel
+            path={"/personal-info"}
+            text={"თანამშრომლის ინფო"}
+            showLine={false}
+          />
+        </div>
+        <div>
+          <HeadLabel text={"ლეპტოპის მახასიათებლები"} showLine={true} />
+        </div>
       </div>
       <div className="m-auto mt-6 h-[98.75rem] w-[76.6rem] rounded-[1.125rem] bg-[#FFFFFF]">
         <FileUpload />
         <div className="h-30 relative top-[7.2rem] ml-[10.8rem] flex w-[55rem] items-center justify-between">
-          <InfoLabel
-            text={"ლეპტოპის სახელი"}
-            holder={"HP"}
-            hint={"ლათინური ასოები, ციფრები, !@#$%^&*()_+="}
-          />
+          <div className="w-[25.4375rem]">
+            <InfoLabel
+              text={"ლეპტოპის სახელი"}
+              holder={"HP"}
+              hint={"ლათინური ასოები, ციფრები, !@#$%^&*()_+="}
+            />
+          </div>
           <SelectMedium choose={"ლეპტოპის ბრენდი"}></SelectMedium>
         </div>
         <div className="relative top-[10rem] left-[11rem] w-[55rem]">
@@ -58,11 +66,13 @@ function PersonalInfo() {
           className="relative top-[1.4rem] ml-[10.8rem] flex h-[7.6rem]
         w-[71.8%] items-center justify-between"
         >
-          <InfoLabel
-            text={"ლეპტოპის RAM (GB)"}
-            holder={"16"}
-            hint={"მხოლოდ ციფრები"}
-          />
+          <div className="w-[25.4375rem]">
+            <InfoLabel
+              text={"ლეპტოპის RAM (GB)"}
+              holder={"16"}
+              hint={"მხოლოდ ციფრები"}
+            />
+          </div>
           <div>
             <p
               className="relative mb-6 mt-[-3.2rem] ml-0 text-[1.125rem] font-medium
@@ -77,15 +87,19 @@ function PersonalInfo() {
           </div>
         </div>
         <div className="relative top-[7.6rem] ml-[10.8rem] flex h-32 w-[71.8%] justify-between">
-          <InfoLabel
-            text={"შეძენის რიცხვი (არჩევითი)"}
-            holder={"დდ / თთ / წწწწ"}
-          />
-          <InfoLabel
-            text={"ლეპტოპის ფასი"}
-            holder={"0000"}
-            hint={"მხოლოდ ციფრები"}
-          />
+          <div className="w-[25.4375rem]">
+            <InfoLabel
+              text={"შეძენის რიცხვი (არჩევითი)"}
+              holder={"დდ / თთ / წწწწ"}
+            />
+          </div>
+          <div className="w-[25.4375rem]">
+            <InfoLabel
+              text={"ლეპტოპის ფასი"}
+              holder={"0000"}
+              hint={"მხოლოდ ციფრები"}
+            />
+          </div>
         </div>
         <div className="relative left-[10.8rem]">
           <p
@@ -100,10 +114,14 @@ function PersonalInfo() {
           </div>
         </div>
         <div className="relative top-[4.7rem] left-[10.9rem] flex w-[55rem] items-center justify-between">
-          <p className="text-[1.125rem] font-medium leading-5 text-[#62A1EB]">
+          <p
+            className="select-none text-[1.125rem] font-medium leading-5
+          text-[#62A1EB] hover:cursor-pointer"
+            onClick={() => navigate("/personal-info")}
+          >
             უკან
           </p>
-          <div className="w-[14rem]">
+          <div className="h-[3.75rem] w-[13.7rem]">
             <ButtonSmall text={"დამახსოვრება"} />
           </div>
         </div>
