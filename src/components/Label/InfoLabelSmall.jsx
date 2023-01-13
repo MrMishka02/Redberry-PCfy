@@ -8,7 +8,7 @@ const InfoLabelSmall = ({ text, holder, hint }) => {
         {text}
       </p>
       <input
-        className="border-#8AC0E2 h-[3.75rem] w-[17.25rem] rounded-[0.5rem] border-2 border-solid
+        className="border-#8AC0E2 h-[3.75rem] w-full rounded-[0.5rem] border-2 border-solid
         text-base pl-2"
         placeholder={holder}
       ></input>
