@@ -13,10 +13,14 @@ import RadioButton from "../../components/Radio/RadioButton";
 function PersonalInfo() {
   return (
     <div>
-      <CircleButton />
+      <CircleButton path={"/personal-info"} />
       <div className="mt-[5.7rem] flex justify-center lg:ml-[18rem] md:ml-[28rem] sm:ml-[40rem]">
-        <HeadLabel text={"თანამშრომლის ინფო"} test={true} />
-        <HeadLabel text={"ლეპტოპის მახასიათებლები"} test={false} />
+        <HeadLabel
+          path={"/personal-info"}
+          text={"თანამშრომლის ინფო"}
+          showLine={false}
+        />
+        <HeadLabel text={"ლეპტოპის მახასიათებლები"} showLine={true} />
       </div>
       <div className="m-auto mt-6 h-[98.75rem] w-[76.6rem] rounded-[1.125rem] bg-[#FFFFFF]">
         <FileUpload />

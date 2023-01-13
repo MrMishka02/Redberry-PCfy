@@ -9,13 +9,17 @@ import LogoBottom from "../../components/Logo/LogoBottom";
 function PersonalInfo() {
   return (
     <div className="m-0">
-      <CircleButton />
+      <CircleButton path={"/"} />
       <div className="m-0 mt-[5.7rem] flex justify-center sm:mt-5">
         <div>
-          <HeadLabel text={"თანამშრომლის ინფო"} test={true} />
+          <HeadLabel text={"თანამშრომლის ინფო"} showLine={true} />
         </div>
         <div className="sm:hidden">
-          <HeadLabel text={"ლეპტოპის მახასიათებლები"} test={false} />
+          <HeadLabel
+            path={"/laptop-info"}
+            text={"ლეპტოპის მახასიათებლები"}
+            showLine={false}
+          />
         </div>
       </div>
       <div

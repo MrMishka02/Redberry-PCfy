@@ -1,14 +1,14 @@
-import Logo from '../../components/Logo/Logo';
-import Wall from '../../components/Wall/Wall';
-import Button from '../../components/Button/Button';
+import Logo from "../../components/Logo/Logo";
+import Wall from "../../components/Wall/Wall";
+import Button from "../../components/Button/Button";
 
 function Landing() {
   return (
-    <div className="w-full h-screen flex flex-col items-center">
+    <div className="flex h-screen w-full flex-col items-center">
       <Logo />
       <Wall />
-      <div className='flex flex-col items-center w-[24.18rem] mt-16 sm:mt-[8rem]'>
-        <Button text={"ᲩᲐᲜᲐᲬᲔᲠᲘᲡ ᲓᲐᲛᲐᲢᲔᲑᲐ"} />
+      <div className="mt-16 flex w-[24.18rem] flex-col items-center sm:mt-[8rem]">
+        <Button path={"/personal-info"} text={"ᲩᲐᲜᲐᲬᲔᲠᲘᲡ ᲓᲐᲛᲐᲢᲔᲑᲐ"} />
         <Button text={"ᲩᲐᲜᲐᲬᲔᲠᲔᲑᲘᲡ ᲡᲘᲐ"} />
       </div>
     </div>

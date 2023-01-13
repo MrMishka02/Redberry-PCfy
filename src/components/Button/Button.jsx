@@ -1,4 +1,7 @@
-function Button({ text }) {
+import { useNavigate } from "react-router-dom";
+
+function Button({ text, path }) {
+  const navigate = useNavigate();
   return (
     <button
       className="mb-[1.625rem] h-[3.75rem] w-full
@@ -6,6 +9,7 @@ function Button({ text }) {
     text-[1.28rem] font-[500] leading-6
     text-white hover:bg-[#317AD0] active:bg-[#1A5DAB]
     sm:mb-[1rem] sm:w-[22.375rem]"
+    onClick={() => navigate(path)}
     >
       {text}
     </button>
