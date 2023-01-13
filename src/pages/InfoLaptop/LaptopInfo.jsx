@@ -104,7 +104,7 @@ function PersonalInfo() {
             უკან
           </p>
           <div className="w-[14rem]">
-            <ButtonSmall path={"/laptop-info"} text={"დამახსოვრება"} />
+            <ButtonSmall text={"დამახსოვრება"} />
           </div>
         </div>
       </div>

@@ -75,7 +75,7 @@ function PersonalInfo() {
         xl:m-auto xl:mt-[8rem] xl:h-[4rem] sm:ml-[14.8rem] sm:mt-[4.6rem]
         sm:h-[2.875rem] sm:w-[8.25rem]"
         >
-          <ButtonSmall text={"შემდეგი"} />
+          <ButtonSmall path={"/laptop-info"} text={"შემდეგი"} />
         </div>
       </div>
       <div className="mt-[4.3rem] mb-6 flex w-full justify-center sm:hidden">
