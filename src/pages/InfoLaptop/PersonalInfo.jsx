@@ -11,8 +11,11 @@ function PersonalInfo() {
     <div className="m-0">
       <CircleButton path={"/"} />
       <div className="m-0 mt-[5.7rem] flex justify-center sm:mt-5">
-        <div>
+        <div className="flex flex-col items-center">
           <HeadLabel text={"თანამშრომლის ინფო"} showLine={true} />
+          <p className="hidden font-normal sm:block sm:text-[0.875rem] sm:text-[#898989]">
+            1/2
+          </p>
         </div>
         <div className="sm:hidden">
           <HeadLabel
