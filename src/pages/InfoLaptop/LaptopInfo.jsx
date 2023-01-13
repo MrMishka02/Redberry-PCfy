@@ -12,7 +12,7 @@ import RadioButton from "../../components/Radio/RadioButton";
 
 function PersonalInfo() {
   return (
-    <>
+    <div>
       <CircleButton />
       <div className="mt-[5.7rem] flex justify-center lg:ml-[18rem] md:ml-[28rem] sm:ml-[40rem]">
         <HeadLabel text={"თანამშრომლის ინფო"} test={true} />
@@ -107,7 +107,7 @@ function PersonalInfo() {
       <div className="mt-[3rem] mb-6 flex w-full justify-center">
         <LogoBottom />
       </div>
-    </>
+    </div>
   );
 }
 

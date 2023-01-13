@@ -8,8 +8,8 @@ const InfoLabel = ({ text, holder, hint }) => {
         {text}
       </p>
       <input
-        className="border-#8AC0E2 h-[3.75rem] w-[25.4rem] rounded-[0.5rem] border-2 border-solid
-        text-base pl-2"
+        className="border-#8AC0E2 h-[3.75rem] w-full rounded-[0.5rem] border-2 border-solid
+        pl-2 text-base"
         placeholder={holder}
       ></input>
       <p className="text-black-500 mt-2 text-xs"> {hint} </p>
