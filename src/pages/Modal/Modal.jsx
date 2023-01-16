@@ -15,7 +15,7 @@ const Modal = () => {
           <p className="text-2xl font-[700] text-[#292929] sm:w-[12.5rem] sm:text-center">
             ჩანაწერი დამატებულია!
           </p>
-          <div className="mt-20 w-[18.5625rem] text-[1.25rem] leading-6 sm:w-[22.375rem] sm:mt-[12rem] sm:mb-10" >
+          <div className="mt-20 w-[18.5625rem] text-[1.25rem] leading-6 sm:mt-[12rem] sm:mb-10 sm:w-[22.375rem]">
             <Button text={"სიაში გადაყვანა"} />
           </div>
           <p
