@@ -134,7 +134,7 @@ function PersonalInfo() {
               />
             </div>
           </div>
-          <div className="w-[55rem] h-[6rem] mt-[10rem] ml-[10.8rem] sm: sm:w-[22.375rem] sm:ml-4">
+          <div className="sm: mt-[10rem] ml-[10.8rem] h-[6rem] w-[55rem] sm:ml-4 sm:w-[22.375rem]">
             <p
               className="mb-6 w-[16rem] text-[1.125rem] font-medium
           text-[#000000]"
