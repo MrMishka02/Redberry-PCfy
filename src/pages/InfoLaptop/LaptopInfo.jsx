@@ -10,10 +10,8 @@ import FileUpload from "../../components/FileUpload/FileUpload";
 import Line from "../../components/Line/Line";
 import RadioButton from "../../components/Radio/RadioButton";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 
 function PersonalInfo() {
-  const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
   return (
     <div>
