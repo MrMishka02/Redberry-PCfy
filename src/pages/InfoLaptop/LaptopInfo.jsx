@@ -1,7 +1,7 @@
 import CircleButton from "../../components/Button/CircleButton";
 import HeadLabel from "../../components/Label/HeadLabel";
-import InfoLabel from "../../components/Label/InfoLabel";
-import InfoLabelSmall from "../../components/Label/InfoLabelSmall";
+import InputLabel from "../../components/Label/InputLabel";
+import InputLabelSmall from "../../components/Label/InputLabelSmall";
 import SelectSmall from "../../components/Select/SelectSmall";
 import Select from "../../components/Select/Select";
 import Button from "../../components/Button/Button";
@@ -43,7 +43,7 @@ function PersonalInfo() {
           sm:top-[4.4rem] sm:ml-0 sm:w-full sm:flex-col"
         >
           <div className="w-[25.4375rem] sm:w-[22.375rem]">
-            <InfoLabel
+            <InputLabel
               text={"ლეპტოპის სახელი"}
               holder={"HP"}
               hint={"ლათინური ასოები, ციფრები, !@#$%^&*()_+="}
@@ -69,14 +69,14 @@ function PersonalInfo() {
                 <SelectSmall choose={"CPU"}></SelectSmall>
               </div>
               <div className=" ml-4 w-[17.25rem] sm:mb-6 sm:w-[22.375rem]">
-                <InfoLabelSmall
+                <InputLabelSmall
                   text={"CPU-ს ბირთვი"}
                   holder={"14"}
                   hint={"მხოლოდ ციფრები"}
                 />
               </div>
               <div className="ml-4 w-[17.25rem] sm:ml-0 sm:w-[22.375rem]">
-                <InfoLabelSmall
+                <InputLabelSmall
                   text={"CPU-ს ნაკადი"}
                   holder={"365"}
                   hint={"მხოლოდ ციფრები"}
@@ -89,7 +89,7 @@ function PersonalInfo() {
         w-[71.8%] items-center justify-between sm:top-[1.6rem] sm:ml-0 sm:w-[24.375rem] sm:flex-col"
           >
             <div className="w-[25.5rem] sm:w-[22.375rem]">
-              <InfoLabel
+              <InputLabel
                 text={"ლეპტოპის RAM (GB)"}
                 holder={"16"}
                 hint={"მხოლოდ ციფრები"}
@@ -121,13 +121,13 @@ function PersonalInfo() {
         sm:top-6 sm:ml-4 sm:flex-col"
           >
             <div className="w-[25.4375rem] sm:mb-4 sm:w-[22.375rem]">
-              <InfoLabel
+              <InputLabel
                 text={"შეძენის რიცხვი (არჩევითი)"}
                 holder={"დდ / თთ / წწწწ"}
               />
             </div>
             <div className="w-[25.4375rem] sm:w-[22.375rem]">
-              <InfoLabel
+              <InputLabel
                 text={"ლეპტოპის ფასი"}
                 holder={"0000"}
                 hint={"მხოლოდ ციფრები"}

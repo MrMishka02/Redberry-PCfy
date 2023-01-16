@@ -1,4 +1,4 @@
-const InfoLabel = ({ text, holder, hint }) => {
+const InputLabelBig = ({ text, holder, hint }) => {
   return (
     <div className="flex w-full flex-col">
       <p
@@ -9,7 +9,7 @@ const InfoLabel = ({ text, holder, hint }) => {
       </p>
       <input
         className="border-#8AC0E2 h-[3.75rem] rounded-[0.5rem] border-2 border-solid
-        text-base pl-2"
+        pl-2 text-base"
         placeholder={holder}
       ></input>
       <p className="text-black-500 mt-2 text-xs"> {hint} </p>
@@ -17,4 +17,4 @@ const InfoLabel = ({ text, holder, hint }) => {
   );
 };
 
-export default InfoLabel;
+export default InputLabelBig;

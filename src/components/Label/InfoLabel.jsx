@@ -1,18 +1,12 @@
-const InfoLabel = ({ text, holder, hint }) => {
+const InfoLabel = ({ text }) => {
   return (
-    <div className="flex flex-col">
+    <div>
       <p
-        className="mb-2 h-[1.5rem] w-[18.1rem]
-        text-[1.125rem] font-[500] leading-[1.31rem] text-[#232323]"
+        className="text-[1.375rem] font-bold leading-[3.35rem] text-[#2E2E2E]
+        sm:text-sm sm:leading-[1.5rem]"
       >
         {text}
       </p>
-      <input
-        className="border-#8AC0E2 h-[3.75rem] w-full rounded-[0.5rem] border-2 border-solid
-        pl-2 text-base"
-        placeholder={holder}
-      ></input>
-      <p className="text-black-500 mt-2 text-xs"> {hint} </p>
     </div>
   );
 };

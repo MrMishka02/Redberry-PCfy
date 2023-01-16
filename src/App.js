@@ -4,6 +4,7 @@ import PersonalInfo from './pages/InfoLaptop/PersonalInfo';
 import LaptopInfo from './pages/InfoLaptop/LaptopInfo';
 import Modal from './pages/Modal/Modal';
 import EntriesList from './pages/EntriesList/EntriesList';
+import InfoPage from './pages/InfoPage/InfoPage';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route path='laptop-info' element={<LaptopInfo />}/>
       <Route path='show-modal' element={<Modal />} />
       <Route path='entries-list' element={<EntriesList />}/>
+      <Route path='info-page' element={<InfoPage />}/>
     </Routes>
     </BrowserRouter>
   );

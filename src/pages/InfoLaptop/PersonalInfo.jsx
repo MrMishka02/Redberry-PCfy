@@ -1,7 +1,7 @@
 import CircleButton from "../../components/Button/CircleButton";
 import HeadLabel from "../../components/Label/HeadLabel";
-import InfoLabel from "../../components/Label/InfoLabel";
-import InfoLabelBig from "../../components/Label/InfoLabelBig";
+import InputLabel from "../../components/Label/InputLabel";
+import InputLabelBig from "../../components/Label/InputLabelBig";
 import Select from "../../components/Select/Select";
 import Button from "../../components/Button/Button";
 import LogoBottom from "../../components/Logo/LogoBottom";
@@ -35,14 +35,14 @@ function PersonalInfo() {
         sm:ml-[1rem] sm:mt-[-3.6rem] sm:block sm:w-[22.375rem]"
         >
           <div className="w-[25.4375rem] sm:w-[22.375rem]">
-            <InfoLabel
+            <InputLabel
               text={"სახელი"}
               holder={"გრიშა"}
               hint={"მინიმუმ 2 სიმბოლო, ქართული ასოები"}
             />
           </div>
           <div className="w-[25.4375rem] sm:mt-5 sm:w-[22.375rem]">
-            <InfoLabel
+            <InputLabel
               text={"გვარი"}
               holder={"ბაგრატიონი"}
               hint={"მინიმუმ 2 სიმბოლო, ქართული ასოები"}
@@ -62,12 +62,12 @@ function PersonalInfo() {
         w-[71.8%] flex-col justify-between xl:m-auto sm:m-auto sm:mt-[-2.2rem]
         sm:w-[22.375rem] "
         >
-          <InfoLabelBig
+          <InputLabelBig
             text={"მეილი"}
             holder={"grish666@redberry.ge"}
             hint={"უნდა მთავრდებოდეს @redberry.ge-ით"}
           />
-          <InfoLabelBig
+          <InputLabelBig
             text={"ტელეფონის ნომერი"}
             holder={"+995 598 00 07 01"}
             hint={"უნდა აკმაყოფილებდეს ქართული მობ-ნომრის ფორმატს"}
