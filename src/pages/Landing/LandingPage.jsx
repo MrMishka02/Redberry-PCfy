@@ -12,7 +12,7 @@ function Landing() {
           <Button path={"/personal-info"} text={"ᲩᲐᲜᲐᲬᲔᲠᲘᲡ ᲓᲐᲛᲐᲢᲔᲑᲐ"} />
         </div>
         <div className="h-[3.75rem] w-[24.18rem]">
-          <Button text={"ᲩᲐᲜᲐᲬᲔᲠᲔᲑᲘᲡ ᲡᲘᲐ"} />
+          <Button path={"/entries-list"} text={"ᲩᲐᲜᲐᲬᲔᲠᲔᲑᲘᲡ ᲡᲘᲐ"} />
         </div>
       </div>
     </div>

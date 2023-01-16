@@ -3,6 +3,7 @@ import Landing from './pages/Landing/LandingPage';
 import PersonalInfo from './pages/InfoLaptop/PersonalInfo';
 import LaptopInfo from './pages/InfoLaptop/LaptopInfo';
 import Modal from './pages/Modal/Modal';
+import EntriesList from './pages/EntriesList/EntriesList';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Route path='personal-info' element={<PersonalInfo />}/>
       <Route path='laptop-info' element={<LaptopInfo />}/>
       <Route path='show-modal' element={<Modal />} />
+      <Route path='entries-list' element={<EntriesList />}/>
     </Routes>
     </BrowserRouter>
   );
