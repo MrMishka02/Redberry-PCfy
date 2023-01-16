@@ -4,14 +4,16 @@ import InfoLabel from "../../components/Label/InfoLabel";
 import InfoLabelSmall from "../../components/Label/InfoLabelSmall";
 import SelectSmall from "../../components/Select/SelectSmall";
 import Select from "../../components/Select/Select";
-import ButtonSmall from "../../components/Button/ButtonSmall";
+import Button from "../../components/Button/Button";
 import LogoBottom from "../../components/Logo/LogoBottom";
 import FileUpload from "../../components/FileUpload/FileUpload";
 import Line from "../../components/Line/Line";
 import RadioButton from "../../components/Radio/RadioButton";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 function PersonalInfo() {
+  const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
   return (
     <div>
@@ -65,10 +67,10 @@ function PersonalInfo() {
               className="ml-[10.7rem] flex w-[55rem] items-center justify-evenly
             sm:ml-0 sm:w-[24.375rem] sm:flex-col"
             >
-              <div className="w-[17.25rem] sm:w-[22.375rem] sm:mt-7 sm:mb-10">
+              <div className="w-[17.25rem] sm:mt-7 sm:mb-10 sm:w-[22.375rem]">
                 <SelectSmall choose={"CPU"}></SelectSmall>
               </div>
-              <div className=" w-[17.25rem] ml-4 sm:w-[22.375rem] sm:mb-6">
+              <div className=" ml-4 w-[17.25rem] sm:mb-6 sm:w-[22.375rem]">
                 <InfoLabelSmall
                   text={"CPU-ს ბირთვი"}
                   holder={"14"}
@@ -86,7 +88,7 @@ function PersonalInfo() {
           </div>
           <div
             className="relative top-[3.2rem] ml-[10.8rem] flex h-[7.6rem]
-        w-[71.8%] items-center justify-between sm:ml-0 sm:w-[24.375rem] sm:flex-col sm:top-[1.6rem]"
+        w-[71.8%] items-center justify-between sm:top-[1.6rem] sm:ml-0 sm:w-[24.375rem] sm:flex-col"
           >
             <div className="w-[25.5rem] sm:w-[22.375rem]">
               <InfoLabel
@@ -95,14 +97,14 @@ function PersonalInfo() {
                 hint={"მხოლოდ ციფრები"}
               />
             </div>
-            <div className="sm:w-[22.375rem] sm:mt-6">
+            <div className="sm:mt-6 sm:w-[22.375rem]">
               <p
                 className="relative mb-6 mt-[-3.2rem] ml-0 text-[1.125rem] font-medium
           text-[#000000] sm:mt-0"
               >
                 მეხსიერების ტიპი
               </p>
-              <div className="mr-[10.6rem] flex h-full w-[15rem] justify-between sm:w-[14.2rem] sm:h-6">
+              <div className="mr-[10.6rem] flex h-full w-[15rem] justify-between sm:h-6 sm:w-[14.2rem]">
                 <RadioButton value={"SSD"} name={"memory"} text={"SSD"} />
                 <RadioButton value={"HDD"} name={"memory"} text={"HDD"} />
               </div>
@@ -112,51 +114,59 @@ function PersonalInfo() {
         <div className="relative top-[6.4rem] left-[11rem] w-[55rem] sm:hidden">
           <Line />
         </div>
-        <div className="sm:relative sm:top-[-8.8rem] sm:block
+        <div
+          className="sm:relative sm:top-[-8.8rem] sm:block
         sm:h-[40.75rem] sm:w-[24.375rem] sm:rounded-lg sm:bg-[#FFFFFF]"
         >
-        <div className="relative top-[9.4rem] ml-[10.8rem] flex h-32 w-[71.8%] justify-between
-        sm:flex-col sm:top-6 sm:ml-4">
-          <div className="w-[25.4375rem] sm:w-[22.375rem] sm:mb-4">
-            <InfoLabel
-              text={"შეძენის რიცხვი (არჩევითი)"}
-              holder={"დდ / თთ / წწწწ"}
-            />
+          <div
+            className="relative top-[9.4rem] ml-[10.8rem] flex h-32 w-[71.8%] justify-between
+        sm:top-6 sm:ml-4 sm:flex-col"
+          >
+            <div className="w-[25.4375rem] sm:mb-4 sm:w-[22.375rem]">
+              <InfoLabel
+                text={"შეძენის რიცხვი (არჩევითი)"}
+                holder={"დდ / თთ / წწწწ"}
+              />
+            </div>
+            <div className="w-[25.4375rem] sm:w-[22.375rem]">
+              <InfoLabel
+                text={"ლეპტოპის ფასი"}
+                holder={"0000"}
+                hint={"მხოლოდ ციფრები"}
+              />
+            </div>
           </div>
-          <div className="w-[25.4375rem] sm:w-[22.375rem]">
-            <InfoLabel
-              text={"ლეპტოპის ფასი"}
-              holder={"0000"}
-              hint={"მხოლოდ ციფრები"}
-            />
-          </div>
-        </div>
-        <div className="w-[55rem] relative left-[10.8rem] sm:left-4 sm:w-[22.375rem]">
-          <p
-            className="w-[16rem] relative mb-6 mt-[12rem] text-[1.125rem] font-medium
+          <div className="relative left-[10.8rem] w-[55rem] sm:left-4 sm:w-[22.375rem]">
+            <p
+              className="relative mb-6 mt-[12rem] w-[16rem] text-[1.125rem] font-medium
           text-[#000000] sm:mt-[9.3rem]"
-          >
-            ლეპტოპის მდგომარეობა
-          </p>
-          <div className="flex h-full w-[15rem] justify-between">
-            <RadioButton value={"new"} name={"condition"} text={"ახალი"} />
-            <RadioButton value={"used"} name={"condition"} text={"მეორადი"} />
+            >
+              ლეპტოპის მდგომარეობა
+            </p>
+            <div className="flex h-full w-[15rem] justify-between">
+              <RadioButton value={"new"} name={"condition"} text={"ახალი"} />
+              <RadioButton value={"used"} name={"condition"} text={"მეორადი"} />
+            </div>
           </div>
-        </div>
-        <div className="relative top-[4.7rem] left-[10.9rem] flex w-[55rem] items-center justify-between
-        sm:left-4 sm:top-[3.8rem] sm:w-[22.3rem]">
-          <p
-            className="select-none text-[1.125rem] font-medium leading-5
+          <div
+            className="relative top-[4.7rem] left-[10.9rem] flex w-[55rem] items-center justify-between
+        sm:left-4 sm:top-[3.8rem] sm:w-[22.3rem]"
+          >
+            <p
+              className="select-none text-[1.125rem] font-medium leading-5
           text-[#62A1EB] hover:cursor-pointer"
-            onClick={() => navigate("/personal-info")}
-          >
-            უკან
-          </p>
-          <div className="h-[3.75rem] w-[13.7rem] sm:w-[10.125rem] sm:h-[2.875rem]">
-            <ButtonSmall text={"დამახსოვრება"} />
+              onClick={() => navigate("/personal-info")}
+            >
+              უკან
+            </p>
+            <div className="h-[3.75rem] w-[13.7rem] sm:h-[2.875rem] sm:w-[10.125rem]">
+              <Button
+                text={"დამახსოვრება"}
+                path = {"/show-modal"}
+              />
+            </div>
           </div>
         </div>
-      </div>
       </div>
       <div className="relative top-[4rem] mb-6 flex w-full justify-center xl:hidden sm:hidden">
         <LogoBottom />

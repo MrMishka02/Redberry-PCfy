@@ -1,4 +1,4 @@
-import ButtonSmall from "../../components/Button/ButtonSmall";
+import Button from "../../components/Button/Button";
 import icon from "../../assets/icon/icon-camera.png"
 
 const FileUpload = () => {
@@ -27,7 +27,7 @@ const FileUpload = () => {
       </div>
 
       <div className="relative top-[10.5rem] left-[20rem] h-[3.75rem] w-[14.6rem] sm:hidden">
-        <ButtonSmall text={"ატვირთე"} />
+        <Button text={"ატვირთე"} />
       </div>
     </div>
   );
