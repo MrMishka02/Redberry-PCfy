@@ -9,7 +9,7 @@ const Modal = () => {
       className="fixed inset-0 flex items-center justify-center
     bg-black bg-opacity-25 backdrop-blur-sm sm:bg-[#FFFFFF]"
     >
-      <div className="flex h-[33.56rem] w-[52.9rem] flex-col sm:w-[24.375rem]">
+      <div className="flex h-[33.56rem] w-[52.9rem] flex-col sm:w-[24.375rem] sm:h-[42rem] sm:overflow-y-scroll">
         <div className="flex flex-col items-center justify-center rounded-lg bg-white p-2">
           <img src={firework} alt="Fireworks" className="w-[12rem]" />
           <p className="text-2xl font-[700] text-[#292929] sm:w-[12.5rem] sm:text-center">
