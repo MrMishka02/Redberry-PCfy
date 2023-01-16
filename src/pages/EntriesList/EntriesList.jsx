@@ -6,33 +6,19 @@ function EntriesList() {
     <div className="flex w-full flex-col items-center bg-[#FFFFFF]">
       <CircleButton path={"/"} />
       <div className="h- flex w-full justify-center">
-        <p className="mt-16 text-[2.125rem] font-bold">ᲩᲐᲜᲐᲬᲔᲠᲔᲑᲘᲡ ᲡᲘᲐ</p>
+        <p className="mt-16 text-[2.125rem] font-bold
+        sm:text-base sm:mt-8">ᲩᲐᲜᲐᲬᲔᲠᲔᲑᲘᲡ ᲡᲘᲐ</p>
       </div>
-      <div className="bg--400 mt-20 mb-20 grid h-[61.5rem] w-[73.5rem] grid-cols-2 gap-14">
-        <div className="w-[40%]">
+      <div className="mt-20 mb-20 grid h-[61.5rem] w-[73.5rem] grid-cols-2 gap-14
+      sm:flex sm:flex-col sm:w-[24.375rem] sm:items-center sm:gap-4">
           <PCList />
-        </div>
-        <div className="w-[40%]">
           <PCList />
-        </div>
-        <div className="w-[40%]">
           <PCList />
-        </div>
-        <div className="w-[40%]">
           <PCList />
-        </div>
-        <div className="w-[40%]">
           <PCList />
-        </div>
-        <div className="w-[40%]">
           <PCList />
-        </div>
-        <div className="w-[40%]">
           <PCList />
-        </div>
-        <div className="w-[40%]">
           <PCList />
-        </div>
       </div>
     </div>
   );
