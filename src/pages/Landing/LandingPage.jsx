@@ -8,8 +8,12 @@ function Landing() {
       <Logo />
       <Wall />
       <div className="mt-16 flex w-[24.18rem] flex-col items-center sm:mt-[5rem]">
-        <Button path={"/personal-info"} text={"ᲩᲐᲜᲐᲬᲔᲠᲘᲡ ᲓᲐᲛᲐᲢᲔᲑᲐ"} />
-        <Button text={"ᲩᲐᲜᲐᲬᲔᲠᲔᲑᲘᲡ ᲡᲘᲐ"} />
+        <div className="mb-6 h-[3.75rem] w-[24.18rem]">
+          <Button path={"/personal-info"} text={"ᲩᲐᲜᲐᲬᲔᲠᲘᲡ ᲓᲐᲛᲐᲢᲔᲑᲐ"} />
+        </div>
+        <div className="h-[3.75rem] w-[24.18rem]">
+          <Button text={"ᲩᲐᲜᲐᲬᲔᲠᲔᲑᲘᲡ ᲡᲘᲐ"} />
+        </div>
       </div>
     </div>
   );

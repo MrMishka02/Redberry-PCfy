@@ -134,14 +134,14 @@ function PersonalInfo() {
               />
             </div>
           </div>
-          <div className="relative left-[10.8rem] w-[55rem] sm:left-4 sm:w-[22.375rem]">
+          <div className="w-[55rem] h-[6rem] mt-[10rem] ml-[10.8rem] sm: sm:w-[22.375rem] sm:ml-4">
             <p
-              className="relative mb-6 mt-[12rem] w-[16rem] text-[1.125rem] font-medium
-          text-[#000000] sm:mt-[9.3rem]"
+              className="mb-6 w-[16rem] text-[1.125rem] font-medium
+          text-[#000000]"
             >
               ლეპტოპის მდგომარეობა
             </p>
-            <div className="flex h-full w-[15rem] justify-between">
+            <div className="flex w-[15rem] justify-between">
               <RadioButton value={"new"} name={"condition"} text={"ახალი"} />
               <RadioButton value={"used"} name={"condition"} text={"მეორადი"} />
             </div>
@@ -158,10 +158,7 @@ function PersonalInfo() {
               უკან
             </p>
             <div className="h-[3.75rem] w-[13.7rem] sm:h-[2.875rem] sm:w-[10.125rem]">
-              <Button
-                text={"დამახსოვრება"}
-                path = {"/show-modal"}
-              />
+              <Button text={"დამახსოვრება"} path={"/show-modal"} />
             </div>
           </div>
         </div>
