@@ -10,7 +10,7 @@ const InfoPage = () => {
     <div className="flex h-full w-full flex-col items-center bg-[#FFFFFF]">
       <CircleButton path={"/entries-list"} />
       <InfoHeadLabel text={"ᲚᲔᲞᲢᲝᲞᲘᲡ ᲘᲜᲤᲝ"} />
-      <div className="mt-16 flex w-[70%] sm:mt-6 sm:w-full sm:flex-col items-center">
+      <div className="mt-16 flex w-[70%] items-center sm:mt-6 sm:w-full sm:flex-col">
         <div className="w-[50%] sm:flex sm:w-full sm:justify-center">
           <img
             src={laptop}
