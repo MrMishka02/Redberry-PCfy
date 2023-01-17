@@ -27,7 +27,7 @@ function PersonalInfo() {
         <div className="flex flex-col items-center">
           <HeadLabel text={"ლეპტოპის მახასიათებლები"} showLine={true} />
           <p className="hidden font-normal sm:block sm:text-[0.875rem] sm:text-[#898989]">
-            1/2
+            2/2
           </p>
         </div>
       </div>
