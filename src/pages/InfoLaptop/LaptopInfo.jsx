@@ -10,8 +10,23 @@ import FileUpload from "../../components/FileUpload/FileUpload";
 import Line from "../../components/Line/Line";
 import RadioButton from "../../components/Radio/RadioButton";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 function PersonalInfo() {
+  const [fetchedBrands, setFetchedBrands] = useState([]);
+  useEffect(() => {
+    fetch(`https://pcfy.redberryinternship.ge/api/brands`)
+      .then((response) => response.json())
+      .then((json) => setFetchedBrands(json.data));
+  }, []);
+
+  const [fetchedCPUS, setFetchedCPUS] = useState([]);
+  useEffect(() => {
+    fetch(`https://pcfy.redberryinternship.ge/api/cpus`)
+      .then((response) => response.json())
+      .then((json) => setFetchedCPUS(json.data));
+  }, []);
+
   const navigate = useNavigate();
   return (
     <div>
@@ -50,7 +65,7 @@ function PersonalInfo() {
             />
           </div>
           <div className="mt-2 flex h-[7.25rem] w-[25.5rem] items-center sm:w-[22.375rem]">
-            <Select choose={"ლეპტოპის ბრენდი"}></Select>
+            <Select fetchedBrands={fetchedBrands}></Select>
           </div>
         </div>
         <div className="relative top-[11.3rem] left-[11rem] w-[55rem] sm:hidden">
@@ -66,7 +81,7 @@ function PersonalInfo() {
             sm:ml-0 sm:w-[24.375rem] sm:flex-col"
             >
               <div className="w-[17.25rem] sm:mt-7 sm:mb-10 sm:w-[22.375rem]">
-                <SelectSmall choose={"CPU"}></SelectSmall>
+                <SelectSmall fetchedCPUS={fetchedCPUS}></SelectSmall>
               </div>
               <div className=" ml-4 w-[17.25rem] sm:mb-6 sm:w-[22.375rem]">
                 <InputLabelSmall
