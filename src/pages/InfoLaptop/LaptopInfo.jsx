@@ -83,7 +83,7 @@ function PersonalInfo() {
               <div className="w-[17.25rem] sm:mt-7 sm:mb-10 sm:w-[22.375rem]">
                 <SelectSmall fetchedCPUS={fetchedCPUS}></SelectSmall>
               </div>
-              <div className=" ml-4 w-[17.25rem] sm:mb-6 sm:w-[22.375rem]">
+              <div className=" ml-4 w-[17.25rem] sm:ml-0 sm:mb-6 sm:w-[22.375rem]">
                 <InputLabelSmall
                   text={"CPU-ს ბირთვი"}
                   holder={"14"}
