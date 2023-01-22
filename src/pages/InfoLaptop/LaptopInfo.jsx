@@ -2,7 +2,6 @@ import CircleButton from "../../components/Button/CircleButton";
 import HeadLabel from "../../components/Label/HeadLabel";
 import InputLabel from "../../components/Label/InputLabel";
 import InputLabelSmall from "../../components/Label/InputLabelSmall";
-import SelectSmall from "../../components/Select/SelectSmall";
 import Select from "../../components/Select/Select";
 import Button from "../../components/Button/Button";
 import LogoBottom from "../../components/Logo/LogoBottom";
@@ -81,7 +80,7 @@ function PersonalInfo() {
             sm:ml-0 sm:w-[24.375rem] sm:flex-col"
             >
               <div className="w-[17.25rem] sm:mt-7 sm:mb-10 sm:w-[22.375rem]">
-                <SelectSmall fetchedCPUS={fetchedCPUS}></SelectSmall>
+                <Select fetchedCPUS={fetchedCPUS}></Select>
               </div>
               <div className=" ml-4 w-[17.25rem] sm:ml-0 sm:mb-6 sm:w-[22.375rem]">
                 <InputLabelSmall

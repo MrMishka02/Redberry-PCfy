@@ -4,6 +4,7 @@ const Select = ({
   fetchedTeam,
   fetchedPosition,
   fetchedBrands,
+  fetchedCPUS
 }) => {
   return (
     <select
@@ -19,6 +20,9 @@ const Select = ({
         <option value={item.team_id}>{item.name}</option>
       ))}
       {fetchedBrands?.map((item) => (
+        <option value={item.id}>{item.name}</option>
+      ))}
+      {fetchedCPUS?.map((item) => (
         <option value={item.id}>{item.name}</option>
       ))}
     </select>
