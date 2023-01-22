@@ -22,6 +22,11 @@ function PersonalInfo() {
       .then((json) => setFetchedPosition(json.data));
   }, []);
 
+
+  
+  const filteredPosition = fetchedPosition.filter((item) => item.team_id === 3);
+  console.log("🚀 ~ file: PersonalInfo.jsx:35 ~ PersonalInfo ~ filteredPosition", filteredPosition)
+
   return (
     <div className="m-0">
       <CircleButton path={"/"} />
@@ -69,8 +74,8 @@ function PersonalInfo() {
         flex-col justify-between xl:m-auto xl:mt-[10rem] xl:w-[40rem]
         sm:m-auto sm:mt-[16rem] sm:w-[22.375rem]"
         >
-          <Select fetchedTeam={fetchedTeam}></Select>
-          <Select fetchedPosition={fetchedPosition}></Select>
+          <Select defaultValue={"თიმი"} data={fetchedTeam}></Select>
+          <Select defaultValue={"პოზიცია"} data={filteredPosition}></Select>
         </div>
         <div
           className="relative top-[3.2rem] ml-[10.8rem] flex h-[17.6rem]
