@@ -22,10 +22,18 @@ function PersonalInfo() {
       .then((json) => setFetchedPosition(json.data));
   }, []);
 
+  const [misha, setMisha] = useState("");
+  function handleChange(e) {
+    setMisha(e.target.value);
+  }
 
-  
-  const filteredPosition = fetchedPosition.filter((item) => item.team_id === 3);
-  console.log("🚀 ~ file: PersonalInfo.jsx:35 ~ PersonalInfo ~ filteredPosition", filteredPosition)
+  let filteredTeam = fetchedTeam.filter((item) => item.name === misha);
+
+  let filteredId = filteredTeam.map((item) => item.id);
+
+  const filteredPosition = fetchedPosition.filter(
+    (item) => item.team_id === parseInt(filteredId)
+  );
 
   return (
     <div className="m-0">
@@ -74,7 +82,11 @@ function PersonalInfo() {
         flex-col justify-between xl:m-auto xl:mt-[10rem] xl:w-[40rem]
         sm:m-auto sm:mt-[16rem] sm:w-[22.375rem]"
         >
-          <Select defaultValue={"თიმი"} data={fetchedTeam}></Select>
+          <Select
+            defaultValue={"თიმი"}
+            data={fetchedTeam}
+            teamChange={handleChange}
+          ></Select>
           <Select defaultValue={"პოზიცია"} data={filteredPosition}></Select>
         </div>
         <div
