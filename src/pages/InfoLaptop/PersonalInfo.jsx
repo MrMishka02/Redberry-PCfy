@@ -22,12 +22,18 @@ function PersonalInfo() {
       .then((json) => setFetchedPosition(json.data));
   }, []);
 
-  const [misha, setMisha] = useState("");
+  const [filterTeam, setFilterTeam] = useState("");
+  const [disabledSelect, setDisabledSelect] = useState(true);
   function handleChange(e) {
-    setMisha(e.target.value);
+    setFilterTeam(e.target.value);
+      if (filterTeam !== "თიმი"){
+        setDisabledSelect(false)
+      }else{
+        setDisabledSelect(true)
+      }
   }
 
-  let filteredTeam = fetchedTeam.filter((item) => item.name === misha);
+  let filteredTeam = fetchedTeam.filter((item) => item.name === filterTeam);
 
   let filteredId = filteredTeam.map((item) => item.id);
 
@@ -78,7 +84,7 @@ function PersonalInfo() {
           </div>
         </div>
         <div
-          className="ml-[11rem] mt-[8.8rem] flex h-[10.8rem] w-[54.875rem]
+          className="ml-[10.8rem] mt-[8.8rem] flex h-[10.8rem] w-[54.875rem]
         flex-col justify-between xl:m-auto xl:mt-[10rem] xl:w-[40rem]
         sm:m-auto sm:mt-[16rem] sm:w-[22.375rem]"
         >
@@ -87,7 +93,11 @@ function PersonalInfo() {
             data={fetchedTeam}
             teamChange={handleChange}
           ></Select>
-          <Select defaultValue={"პოზიცია"} data={filteredPosition}></Select>
+          <Select
+            defaultValue={"პოზიცია"}
+            data={filteredPosition}
+            disabled={disabledSelect}
+          ></Select>
         </div>
         <div
           className="relative top-[3.2rem] ml-[10.8rem] flex h-[17.6rem]
