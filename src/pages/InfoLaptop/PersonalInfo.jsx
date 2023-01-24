@@ -22,23 +22,15 @@ function PersonalInfo() {
       .then((json) => setFetchedPosition(json.data));
   }, []);
 
-  const [filterTeam, setFilterTeam] = useState("");
-  const [disabledSelect, setDisabledSelect] = useState(true);
+  const [selectedTeam, setSelectedTeam] = useState("");
   function handleChange(e) {
-    setFilterTeam(e.target.value);
-      if (filterTeam !== "თიმი"){
-        setDisabledSelect(false)
-      }else{
-        setDisabledSelect(true)
-      }
+    setSelectedTeam(e.target.value);
   }
 
-  let filteredTeam = fetchedTeam.filter((item) => item.name === filterTeam);
-
-  let filteredId = filteredTeam.map((item) => item.id);
+  let filteredTeam = fetchedTeam.filter((item) => item.name === selectedTeam);
 
   const filteredPosition = fetchedPosition.filter(
-    (item) => item.team_id === parseInt(filteredId)
+    (item) => item.team_id === filteredTeam[0]?.id
   );
 
   return (
@@ -96,7 +88,7 @@ function PersonalInfo() {
           <Select
             defaultValue={"პოზიცია"}
             data={filteredPosition}
-            disabled={disabledSelect}
+            disabled={selectedTeam === "" ? true : false}
           ></Select>
         </div>
         <div
