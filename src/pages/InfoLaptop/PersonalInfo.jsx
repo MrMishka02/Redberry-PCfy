@@ -5,7 +5,8 @@ import InputLabelBig from "../../components/Label/InputLabelBig";
 import Select from "../../components/Select/Select";
 import Button from "../../components/Button/Button";
 import LogoBottom from "../../components/Logo/LogoBottom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { SelectedTeamContext } from "../../SelectedTeamContext/SelectedTeamContext";
 
 function PersonalInfo() {
   const [fetchedTeam, setFetchedTeam] = useState([]);
@@ -22,10 +23,7 @@ function PersonalInfo() {
       .then((json) => setFetchedPosition(json.data));
   }, []);
 
-  const [selectedTeam, setSelectedTeam] = useState("");
-  function handleChange(e) {
-    setSelectedTeam(e.target.value);
-  }
+  const { selectedTeam, handleChange } = useContext(SelectedTeamContext);
 
   let filteredTeam = fetchedTeam.filter((item) => item.name === selectedTeam);
 
