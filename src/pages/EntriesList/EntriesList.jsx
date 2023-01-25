@@ -1,6 +1,4 @@
-import CircleButton from "../../components/Button/CircleButton";
-import InfoHeadLabel from "../../components/Label/InfoHeadLabel";
-import PCList from "../../components/PCList/PCList";
+import { PCList, CircleButton, InfoHeadLabel } from "../../components";
 
 function EntriesList() {
   return (

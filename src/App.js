@@ -1,10 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Landing from './pages/Landing/LandingPage';
-import PersonalInfo from './pages/InfoLaptop/PersonalInfo';
-import LaptopInfo from './pages/InfoLaptop/LaptopInfo';
-import Modal from './pages/Modal/Modal';
-import EntriesList from './pages/EntriesList/EntriesList';
-import InfoPage from './pages/InfoPage/InfoPage';
+import { EntriesList, InfoPage, Landing, LaptopInfo, Modal, PersonalInfo } from "./pages/"
 
 function App() {
   return (

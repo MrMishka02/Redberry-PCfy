@@ -1,11 +1,13 @@
-import CircleButton from "../../components/Button/CircleButton";
-import HeadLabel from "../../components/Label/HeadLabel";
-import InputLabel from "../../components/Label/InputLabel";
-import InputLabelBig from "../../components/Label/InputLabelBig";
-import Select from "../../components/Select/Select";
-import Button from "../../components/Button/Button";
-import LogoBottom from "../../components/Logo/LogoBottom";
 import { useEffect, useState } from "react";
+import {
+  Button,
+  CircleButton,
+  HeadLabel,
+  InputLabel,
+  InputLabelBig,
+  LogoBottom,
+  Select,
+} from "../../components";
 
 function PersonalInfo() {
   const [fetchedTeam, setFetchedTeam] = useState([]);

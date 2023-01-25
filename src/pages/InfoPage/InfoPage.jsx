@@ -1,9 +1,11 @@
-import CircleButton from "../../components/Button/CircleButton";
-import InfoHeadLabel from "../../components/Label/InfoHeadLabel";
-import InfoLabel from "../../components/Label/InfoLabel";
+import {
+  CircleButton,
+  InfoHeadLabel,
+  InfoLabel,
+  InfoText,
+  Line,
+} from "../../components/";
 import laptop from "../../assets/img/laptop.png";
-import InfoText from "../../components/Label/InfoText";
-import Line from "../../components/Line/Line";
 
 const InfoPage = () => {
   return (

@@ -1,15 +1,17 @@
-import CircleButton from "../../components/Button/CircleButton";
-import HeadLabel from "../../components/Label/HeadLabel";
-import InputLabel from "../../components/Label/InputLabel";
-import InputLabelSmall from "../../components/Label/InputLabelSmall";
-import Select from "../../components/Select/Select";
-import Button from "../../components/Button/Button";
-import LogoBottom from "../../components/Logo/LogoBottom";
-import FileUpload from "../../components/FileUpload/FileUpload";
-import Line from "../../components/Line/Line";
-import RadioButton from "../../components/Radio/RadioButton";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import {
+  Button,
+  CircleButton,
+  FileUpload,
+  HeadLabel,
+  InputLabel,
+  InputLabelSmall,
+  Line,
+  LogoBottom,
+  Select,
+} from "../../components";
+import RadioButton from "../../components/Radio/RadioButton";
 
 function PersonalInfo() {
   const [fetchedBrands, setFetchedBrands] = useState([]);

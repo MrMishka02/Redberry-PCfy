@@ -1,6 +1,4 @@
-import Logo from "../../components/Logo/Logo";
-import Wall from "../../components/Wall/Wall";
-import Button from "../../components/Button/Button";
+import { Button, Logo, Wall } from "../../components";
 
 function Landing() {
   return (
