@@ -25,8 +25,12 @@ function PersonalInfo() {
   }, []);
 
   const [selectedTeam, setSelectedTeam] = useState("");
-  function handleChange(event) {
+  function handleChangeTeam(event) {
     setSelectedTeam(event.target.value);
+  }
+  const [selectedPosition, setSelectedPosition] = useState("");
+  function handleChangePosition(event) {
+    setSelectedPosition(event.target.value);
   }
 
   let filteredTeam = fetchedTeam.filter((item) => item.name === selectedTeam);
@@ -84,13 +88,16 @@ function PersonalInfo() {
         >
           <Select
             defaultValue={"თიმი"}
+            name="team"
             data={fetchedTeam}
-            teamChange={handleChange}
+            selectChange={handleChangeTeam}
           ></Select>
           <Select
             defaultValue={"პოზიცია"}
+            name="position"
             data={filteredPosition}
             disabled={selectedTeam === "" ? true : false}
+            selectChange={handleChangePosition}
           ></Select>
         </div>
         <div
@@ -114,7 +121,12 @@ function PersonalInfo() {
         xl:m-auto xl:mt-[8rem] xl:h-[4rem] sm:ml-[14.8rem] sm:mt-[4.6rem]
         sm:h-[2.875rem] sm:w-[8.25rem]"
         >
-          <Button path={"/laptop-info"} text={"შემდეგი"} />
+          <Button
+            path={"/laptop-info"}
+            text={"შემდეგი"}
+            selectedTeam={selectedTeam}
+            selectedPosition={selectedPosition}
+          />
         </div>
       </div>
       <div className="mt-[4.3rem] mb-6 flex w-full justify-center sm:hidden">
