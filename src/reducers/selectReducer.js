@@ -1,6 +1,6 @@
 const selectReducer = (state = "", action) => {
   switch (action.type) {
-    case "Select_Value":
+    case "SELECT_VALUE":
       return (state = action.payload);
     default:
       return state;

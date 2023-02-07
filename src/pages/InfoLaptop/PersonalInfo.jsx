@@ -24,6 +24,16 @@ function PersonalInfo() {
       .then((json) => setFetchedPosition(json.data));
   }, []);
 
+  const [firstName, setFirstName] = useState("");
+  function handleChangeFirstName(event) {
+    setFirstName(event.target.value);
+  }
+
+  const [lastName, setLastName] = useState("");
+  function handleChangeLastName(event) {
+    setLastName(event.target.value);
+  }
+
   const [selectedTeam, setSelectedTeam] = useState("");
   function handleChangeTeam(event) {
     setSelectedTeam(event.target.value);
@@ -71,6 +81,8 @@ function PersonalInfo() {
               text={"სახელი"}
               holder={"გრიშა"}
               hint={"მინიმუმ 2 სიმბოლო, ქართული ასოები"}
+              firstName={firstName}
+              inputChange={handleChangeFirstName}
             />
           </div>
           <div className="w-[25.4375rem] sm:mt-5 sm:w-[22.375rem]">
@@ -78,6 +90,8 @@ function PersonalInfo() {
               text={"გვარი"}
               holder={"ბაგრატიონი"}
               hint={"მინიმუმ 2 სიმბოლო, ქართული ასოები"}
+              lastName={lastName}
+              inputChange={handleChangeLastName}
             />
           </div>
         </div>
@@ -126,6 +140,8 @@ function PersonalInfo() {
             text={"შემდეგი"}
             selectedTeam={selectedTeam}
             selectedPosition={selectedPosition}
+            firstName={firstName}
+            lastName={lastName}
           />
         </div>
       </div>

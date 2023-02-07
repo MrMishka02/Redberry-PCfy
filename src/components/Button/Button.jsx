@@ -1,10 +1,24 @@
-import { useNavigate } from "react-router-dom";
-import { getValues } from "../../actions";
+import { useNavigate, useLocation } from "react-router-dom";
+import { getInputValues, getSelectValues } from "../../actions";
 import { useDispatch } from "react-redux";
 
-function Button({ text, path, selectedTeam, selectedPosition }) {
+function Button({
+  text,
+  path,
+  selectedTeam,
+  selectedPosition,
+  firstName,
+  lastName,
+}) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const location = useLocation();
+  console.log(location.pathname);
+  const multipleActions = () => {
+    dispatch(getInputValues({ firstName, lastName }));
+    dispatch(getSelectValues({ selectedTeam, selectedPosition }));
+  };
+
   return (
     <button
       className="mb-[1.625rem] h-full w-full
@@ -13,8 +27,11 @@ function Button({ text, path, selectedTeam, selectedPosition }) {
     text-white hover:bg-[#317AD0] active:bg-[#1A5DAB]
     sm:mb-[1rem]"
       onClick={() => {
-        navigate(path);
-        dispatch(getValues({ selectedTeam, selectedPosition }));
+        if (location.pathname === "/") {
+          navigate(path);
+        } else {
+          multipleActions();
+        }
       }}
     >
       {text}
