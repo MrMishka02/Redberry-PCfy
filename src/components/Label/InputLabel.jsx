@@ -1,4 +1,4 @@
-const InputLabel = ({ text, holder, hint, inputChange }) => {
+const InputLabel = ({ text, holder, hint, inputChange, name, register }) => {
   return (
     <div className="flex flex-col">
       <p
@@ -12,6 +12,8 @@ const InputLabel = ({ text, holder, hint, inputChange }) => {
         className="border-#8AC0E2 h-[3.75rem] w-full rounded-[0.5rem] border-2 border-solid
         pl-2 text-base"
         placeholder={holder}
+        name={name}
+        ref={register}
       ></input>
       <p className="text-black-500 mt-2 text-xs"> {hint} </p>
     </div>

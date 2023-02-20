@@ -9,6 +9,7 @@ function Button({
   selectedPosition,
   firstName,
   lastName,
+  type
 }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -33,6 +34,7 @@ function Button({
           multipleActions();
         }
       }}
+      type={type}
     >
       {text}
     </button>

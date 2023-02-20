@@ -67,7 +67,7 @@ function PersonalInfo() {
           />
         </div>
       </div>
-      <div
+      <form
         className="m-auto mt-6 h-[60.8rem] w-[76.6rem] rounded-[1.125rem] bg-[#FFFFFF]
       xl:w-full sm:mt-20 sm:w-[24.375rem]"
       >
@@ -82,6 +82,7 @@ function PersonalInfo() {
               holder={"გრიშა"}
               hint={"მინიმუმ 2 სიმბოლო, ქართული ასოები"}
               firstName={firstName}
+              name="firstName"
               inputChange={handleChangeFirstName}
             />
           </div>
@@ -91,6 +92,7 @@ function PersonalInfo() {
               holder={"ბაგრატიონი"}
               hint={"მინიმუმ 2 სიმბოლო, ქართული ასოები"}
               lastName={lastName}
+              name="lastName"
               inputChange={handleChangeLastName}
             />
           </div>
@@ -123,11 +125,13 @@ function PersonalInfo() {
             text={"მეილი"}
             holder={"grish666@redberry.ge"}
             hint={"უნდა მთავრდებოდეს @redberry.ge-ით"}
+            name="email"
           />
           <InputLabelBig
             text={"ტელეფონის ნომერი"}
             holder={"+995 598 00 07 01"}
             hint={"უნდა აკმაყოფილებდეს ქართული მობ-ნომრის ფორმატს"}
+            name="phoneNumber"
           />
         </div>
         <div
@@ -138,13 +142,14 @@ function PersonalInfo() {
           <Button
             path={"/laptop-info"}
             text={"შემდეგი"}
+            type="submit"
             selectedTeam={selectedTeam}
             selectedPosition={selectedPosition}
             firstName={firstName}
             lastName={lastName}
           />
         </div>
-      </div>
+      </form>
       <div className="mt-[4.3rem] mb-6 flex w-full justify-center sm:hidden">
         <LogoBottom />
       </div>
