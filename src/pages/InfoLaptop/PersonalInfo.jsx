@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { userSchema } from "../../Validations/UserValidations";
 import {
   Button,
   CircleButton,
@@ -24,30 +27,32 @@ function PersonalInfo() {
       .then((json) => setFetchedPosition(json.data));
   }, []);
 
-  const [firstName, setFirstName] = useState("");
-  function handleChangeFirstName(event) {
-    setFirstName(event.target.value);
-  }
-
-  const [lastName, setLastName] = useState("");
-  function handleChangeLastName(event) {
-    setLastName(event.target.value);
-  }
-
   const [selectedTeam, setSelectedTeam] = useState("");
   function handleChangeTeam(event) {
     setSelectedTeam(event.target.value);
   }
-  const [selectedPosition, setSelectedPosition] = useState("");
-  function handleChangePosition(event) {
-    setSelectedPosition(event.target.value);
-  }
+  // const [selectedPosition, setSelectedPosition] = useState("");
+  // function handleChangePosition(event) {
+  //   setSelectedPosition(event.target.value);
+  // }
 
   let filteredTeam = fetchedTeam.filter((item) => item.name === selectedTeam);
 
   const filteredPosition = fetchedPosition.filter(
     (item) => item.team_id === filteredTeam[0]?.id
   );
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(userSchema),
+  });
+
+  const submitForm = (data) => {
+    console.log(data);
+  };
 
   return (
     <div className="m-0">
@@ -68,6 +73,7 @@ function PersonalInfo() {
         </div>
       </div>
       <form
+        onSubmit={handleSubmit(submitForm)}
         className="m-auto mt-6 h-[60.8rem] w-[76.6rem] rounded-[1.125rem] bg-[#FFFFFF]
       xl:w-full sm:mt-20 sm:w-[24.375rem]"
       >
@@ -81,9 +87,9 @@ function PersonalInfo() {
               text={"სახელი"}
               holder={"გრიშა"}
               hint={"მინიმუმ 2 სიმბოლო, ქართული ასოები"}
-              firstName={firstName}
+              register={register}
+              errors={errors.firstName}
               name="firstName"
-              inputChange={handleChangeFirstName}
             />
           </div>
           <div className="w-[25.4375rem] sm:mt-5 sm:w-[22.375rem]">
@@ -91,9 +97,9 @@ function PersonalInfo() {
               text={"გვარი"}
               holder={"ბაგრატიონი"}
               hint={"მინიმუმ 2 სიმბოლო, ქართული ასოები"}
-              lastName={lastName}
+              register={register}
+              errors={errors.lastName}
               name="lastName"
-              inputChange={handleChangeLastName}
             />
           </div>
         </div>
@@ -105,15 +111,19 @@ function PersonalInfo() {
           <Select
             defaultValue={"თიმი"}
             name="team"
+            register={register}
+            errors={errors.team}
             data={fetchedTeam}
             selectChange={handleChangeTeam}
           ></Select>
           <Select
             defaultValue={"პოზიცია"}
             name="position"
+            register={register}
+            errors={errors.position}
             data={filteredPosition}
             disabled={selectedTeam === "" ? true : false}
-            selectChange={handleChangePosition}
+            // selectChange={handleChangePosition}
           ></Select>
         </div>
         <div
@@ -126,12 +136,16 @@ function PersonalInfo() {
             holder={"grish666@redberry.ge"}
             hint={"უნდა მთავრდებოდეს @redberry.ge-ით"}
             name="email"
+            register={register}
+            errors={errors.email}
           />
           <InputLabelBig
             text={"ტელეფონის ნომერი"}
             holder={"+995 598 00 07 01"}
             hint={"უნდა აკმაყოფილებდეს ქართული მობ-ნომრის ფორმატს"}
             name="phoneNumber"
+            register={register}
+            errors={errors.phoneNumber}
           />
         </div>
         <div
@@ -139,15 +153,7 @@ function PersonalInfo() {
         xl:m-auto xl:mt-[8rem] xl:h-[4rem] sm:ml-[14.8rem] sm:mt-[4.6rem]
         sm:h-[2.875rem] sm:w-[8.25rem]"
         >
-          <Button
-            path={"/laptop-info"}
-            text={"შემდეგი"}
-            type="submit"
-            selectedTeam={selectedTeam}
-            selectedPosition={selectedPosition}
-            firstName={firstName}
-            lastName={lastName}
-          />
+          <Button path={"/laptop-info"} text={"შემდეგი"} type="submit" />
         </div>
       </form>
       <div className="mt-[4.3rem] mb-6 flex w-full justify-center sm:hidden">

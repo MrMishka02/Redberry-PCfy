@@ -9,12 +9,12 @@ function Button({
   selectedPosition,
   firstName,
   lastName,
-  type
+  type,
 }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const location = useLocation();
-  console.log(location.pathname);
+  // console.log(location.pathname);
   const multipleActions = () => {
     dispatch(getInputValues({ firstName, lastName }));
     dispatch(getSelectValues({ selectedTeam, selectedPosition }));
