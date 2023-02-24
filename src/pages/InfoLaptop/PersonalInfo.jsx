@@ -133,7 +133,7 @@ function PersonalInfo() {
         >
           <InputLabelBig
             text={"მეილი"}
-            holder={"grish666@redberry.ge"}
+            holder={"grish22@redberry.ge"}
             hint={"უნდა მთავრდებოდეს @redberry.ge-ით"}
             name="email"
             register={register}
