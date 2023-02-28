@@ -11,8 +11,8 @@ export const userSchema = yup.object().shape({
     .matches(/[აბგდევზთიკლმნოპჟრსტუფქღყშჩცძწჭხჯჰ]/, "გამოიყენე ქართული ასოები")
     .required("ველის შევსება აუცილებელია")
     .min(2, "გვარი უნდა შეიცავდეს მინიმუმ 2 სიმბოლოს"),
-  team: yup.string().required(),
-  position: yup.string().required(),
+  team: yup.string().required("აირჩიეთ თიმი"),
+  position: yup.string().required("აირჩიეთ პოზიცია"),
   email: yup
     .string()
     .email("შეიყვანეთ ელ.ფოსტა სწორი ფრომატით")
@@ -21,7 +21,6 @@ export const userSchema = yup.object().shape({
   phoneNumber: yup
     .string()
     .required("ველის შევსება აუცილებელია")
-    .matches(/[0-9]$/, "ჩაწერეთ სწორი ფორმატით: +995 5** *** ***")
-    .min(13)
-    .max(13),
+    .matches(/\+[0-9]{12}/, "ჩაწერეთ სწორი ფორმატით: +995 5** *** ***")
+    .max(13, "ტელ-ნომერი უნდა შედგებოდეს 13 სიმბოლოსგან"),
 });
