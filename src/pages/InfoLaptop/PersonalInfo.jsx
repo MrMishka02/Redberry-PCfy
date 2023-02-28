@@ -52,17 +52,17 @@ function PersonalInfo() {
 
   const submitForm = (data) => {
     alert(
-      data.firstName +
+      "სახელი, გვარი:" + data.firstName +
         " " +
         data.lastName +
         "\n" +
-        data.team +
+        "თიმი:" + data.team +
         "\n" +
-        data.position +
+        "პოზიცია:" + data.position +
         "\n" +
-        data.email +
+        "მეილი:" + data.email +
         "\n" +
-        data.phoneNumber
+        "ტელ-ნომერი:" + data.phoneNumber
     );
   };
 
