@@ -51,7 +51,19 @@ function PersonalInfo() {
   });
 
   const submitForm = (data) => {
-    console.log(data);
+    alert(
+      data.firstName +
+        " " +
+        data.lastName +
+        "\n" +
+        data.team +
+        "\n" +
+        data.position +
+        "\n" +
+        data.email +
+        "\n" +
+        data.phoneNumber
+    );
   };
 
   return (
