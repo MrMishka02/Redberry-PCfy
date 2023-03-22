@@ -1,4 +1,4 @@
-import { PCList, CircleButton, InfoHeadLabel } from "../../components";
+import { PCList, CircleButton, InfoHeadLabel } from "../../components"
 
 function EntriesList() {
   return (
@@ -22,7 +22,7 @@ function EntriesList() {
         <PCList />
       </div>
     </div>
-  );
+  )
 }
 
-export default EntriesList;
+export default EntriesList

@@ -4,8 +4,8 @@ import {
   InfoLabel,
   InfoText,
   Line,
-} from "../../components/";
-import laptop from "../../assets/img/laptop.png";
+} from "../../components/"
+import laptop from "../../assets/img/laptop.png"
 
 const InfoPage = () => {
   return (
@@ -98,7 +98,7 @@ const InfoPage = () => {
       </div>
       <div className="h-20"></div>
     </div>
-  );
-};
+  )
+}
 
-export default InfoPage;
+export default InfoPage
