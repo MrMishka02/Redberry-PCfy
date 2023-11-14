@@ -1,24 +1,10 @@
+import { useSelector } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
-import { getInputValues, getSelectValues } from "../../actions";
-import { useDispatch } from "react-redux";
 
-function Button({
-  text,
-  path,
-  selectedTeam,
-  selectedPosition,
-  firstName,
-  lastName,
-  type,
-}) {
+function Button({ text, path, type }) {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const location = useLocation();
-  // console.log(location.pathname);
-  const multipleActions = () => {
-    dispatch(getInputValues({ firstName, lastName }));
-    dispatch(getSelectValues({ selectedTeam, selectedPosition }));
-  };
+  const { firstName, lastName, fetchedTeam } = useSelector(state => state.userData)
 
   return (
     <button
@@ -31,7 +17,7 @@ function Button({
         if (location.pathname === "/") {
           navigate(path);
         } else {
-          multipleActions();
+          console.log(firstName, lastName, fetchedTeam);
         }
       }}
       type={type}

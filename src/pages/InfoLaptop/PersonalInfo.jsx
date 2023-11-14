@@ -11,34 +11,49 @@ import {
   LogoBottom,
   Select,
 } from "../../components";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getFirstName,
+  getLastName,
+  getFetchedTeam,
+} from "../../store/dataSlice";
 
 function PersonalInfo() {
-  const [fetchedTeam, setFetchedTeam] = useState([]);
-  useEffect(() => {
-    fetch(`https://pcfy.redberryinternship.ge/api/teams`)
-      .then((response) => response.json())
-      .then((json) => setFetchedTeam(json.data));
-  }, []);
-
-  const [fetchedPosition, setFetchedPosition] = useState([]);
-  useEffect(() => {
-    fetch(`https://pcfy.redberryinternship.ge/api/positions`)
-      .then((response) => response.json())
-      .then((json) => setFetchedPosition(json.data));
-  }, []);
-
+  const { firstName, lastName, fetchedTeam } = useSelector(
+    (state) => state.userData
+  );
   const [selectedTeam, setSelectedTeam] = useState("");
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const getFetch = async () => {
+      const response = await fetch(
+        "https://mrmishka02.github.io/pcfy_api/pcfy.json"
+      );
+      const data = await response.json();
+      dispatch(getFetchedTeam(data));
+    };
+    getFetch();
+  }, [dispatch]);
+
+  function handleFirstName(event) {
+    dispatch(getFirstName(event.target.value));
+    console.log(firstName);
+  }
+  function handleLastName(event) {
+    dispatch(getLastName(event.target.value));
+    console.log(lastName);
+  }
+
   function handleChangeTeam(event) {
     setSelectedTeam(event.target.value);
   }
-  // const [selectedPosition, setSelectedPosition] = useState("");
-  // function handleChangePosition(event) {
-  //   setSelectedPosition(event.target.value);
-  // }
 
-  let filteredTeam = fetchedTeam.filter((item) => item.name === selectedTeam);
+  let filteredTeam = fetchedTeam?.teams?.filter(
+    (item) => item.name === selectedTeam
+  );
 
-  const filteredPosition = fetchedPosition.filter(
+  const filteredPosition = fetchedTeam?.positions?.filter(
     (item) => item.team_id === filteredTeam[0]?.id
   );
 
@@ -107,6 +122,7 @@ function PersonalInfo() {
               register={register}
               errors={errors.firstName}
               name="firstName"
+              dispatch={handleFirstName}
             />
           </div>
           <div className="w-[25.4375rem] sm:mt-5 sm:w-[22.375rem]">
@@ -117,6 +133,7 @@ function PersonalInfo() {
               register={register}
               errors={errors.lastName}
               name="lastName"
+              dispatch={handleLastName}
             />
           </div>
         </div>
@@ -130,7 +147,7 @@ function PersonalInfo() {
             name="team"
             register={register}
             errors={errors.team}
-            data={fetchedTeam}
+            data={fetchedTeam.teams}
             selectChange={handleChangeTeam}
           ></Select>
           <Select
