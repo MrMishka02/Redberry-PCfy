@@ -1,5 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { PcSchema } from "../../Validations/PcValidations";
 import {
   Button,
   CircleButton,
@@ -16,19 +19,49 @@ import RadioButton from "../../components/Radio/RadioButton";
 function PersonalInfo() {
   const [fetchedBrands, setFetchedBrands] = useState([]);
   useEffect(() => {
-    fetch(`https://pcfy.redberryinternship.ge/api/brands`)
+    fetch(`https://mrmishka02.github.io/pcfy_api/pcfy.json`)
       .then((response) => response.json())
-      .then((json) => setFetchedBrands(json.data));
+      .then((json) => setFetchedBrands(json.brands));
   }, []);
 
   const [fetchedCPUS, setFetchedCPUS] = useState([]);
   useEffect(() => {
-    fetch(`https://pcfy.redberryinternship.ge/api/cpus`)
+    fetch(`https://mrmishka02.github.io/pcfy_api/pcfy.json`)
       .then((response) => response.json())
-      .then((json) => setFetchedCPUS(json.data));
+      .then((json) => setFetchedCPUS(json.cpu));
   }, []);
 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(PcSchema),
+  });
+
+  const submitForm = (data) => {
+    alert(
+      "სახელი, გვარი:  " +
+        data.laptopName +
+        " " +
+        data.brands +
+        "\n" +
+        "თიმი:  " +
+        data.cpu +
+        "\n" +
+        "პოზიცია:  " +
+        data.position +
+        "\n" +
+        "მეილი:  " +
+        data.email +
+        "\n" +
+        "ტელ-ნომერი:  " +
+        data.phoneNumber
+    );
+  };
+
   const navigate = useNavigate();
+
   return (
     <div>
       <CircleButton path={"/personal-info"} />
@@ -47,7 +80,8 @@ function PersonalInfo() {
           </p>
         </div>
       </div>
-      <div
+      <form
+        onSubmit={handleSubmit(submitForm)}
         className="m-auto mt-2 h-[98.75rem] w-[76.6rem] rounded-[1.125rem] bg-[#FFFFFF]
       sm:h-[34.4375rem] sm:w-[24.375rem] "
       >
@@ -63,10 +97,19 @@ function PersonalInfo() {
               text={"ლეპტოპის სახელი"}
               holder={"HP"}
               hint={"ლათინური ასოები, ციფრები, !@#$%^&*()_+="}
+              register={register}
+              name="laptopName"
+              errors={errors.laptopName}
             />
           </div>
           <div className="mt-2 flex h-[7.25rem] w-[25.5rem] items-center sm:w-[22.375rem]">
-            <Select defaultValue={"Brand"} data={fetchedBrands}></Select>
+            <Select
+              defaultValue={"Brand"}
+              data={fetchedBrands}
+              register={register}
+              name="brand"
+              errors={errors.brand}
+            ></Select>
           </div>
         </div>
         <div className="relative top-[11.3rem] left-[11rem] w-[55rem] sm:hidden">
@@ -82,13 +125,22 @@ function PersonalInfo() {
             sm:ml-0 sm:w-[24.375rem] sm:flex-col"
             >
               <div className="w-[17.25rem] sm:mt-7 sm:mb-10 sm:w-[22.375rem]">
-                <Select defaultValue={"CPU"} data={fetchedCPUS}></Select>
+                <Select
+                  defaultValue={"CPU"}
+                  data={fetchedCPUS}
+                  register={register}
+                  name="cpu"
+                  errors={errors.cpu}
+                ></Select>
               </div>
               <div className=" ml-4 w-[17.25rem] sm:ml-0 sm:mb-6 sm:w-[22.375rem]">
                 <InputLabelSmall
                   text={"CPU-ს ბირთვი"}
                   holder={"14"}
                   hint={"მხოლოდ ციფრები"}
+                  register={register}
+                  name="cores"
+                  errors={errors.cores}
                 />
               </div>
               <div className="ml-4 w-[17.25rem] sm:ml-0 sm:w-[22.375rem]">
@@ -96,6 +148,9 @@ function PersonalInfo() {
                   text={"CPU-ს ნაკადი"}
                   holder={"365"}
                   hint={"მხოლოდ ციფრები"}
+                  register={register}
+                  name="threads"
+                  errors={errors.threads}
                 />
               </div>
             </div>
@@ -109,6 +164,9 @@ function PersonalInfo() {
                 text={"ლეპტოპის RAM (GB)"}
                 holder={"16"}
                 hint={"მხოლოდ ციფრები"}
+                register={register}
+                name="ram"
+                errors={errors.ram}
               />
             </div>
             <div className="sm:mt-6 sm:w-[22.375rem]">
@@ -140,6 +198,8 @@ function PersonalInfo() {
               <InputLabel
                 text={"შეძენის რიცხვი (არჩევითი)"}
                 holder={"დდ / თთ / წწწწ"}
+                register={register}
+                name="date"
               />
             </div>
             <div className="w-[25.4375rem] sm:w-[22.375rem]">
@@ -147,6 +207,9 @@ function PersonalInfo() {
                 text={"ლეპტოპის ფასი"}
                 holder={"0000"}
                 hint={"მხოლოდ ციფრები"}
+                register={register}
+                name="price"
+                errors={errors.price}
               />
             </div>
           </div>
@@ -178,7 +241,7 @@ function PersonalInfo() {
             </div>
           </div>
         </div>
-      </div>
+      </form>
       <div className="relative top-[4rem] mb-6 flex w-full justify-center xl:hidden sm:hidden">
         <LogoBottom />
       </div>
