@@ -73,26 +73,7 @@ function PersonalInfo() {
     resolver: yupResolver(userSchema),
   });
 
-  const submitForm = (data) => {
-    alert(
-      "სახელი, გვარი:  " +
-        data.firstName +
-        " " +
-        data.lastName +
-        "\n" +
-        "თიმი:  " +
-        data.team +
-        "\n" +
-        "პოზიცია:  " +
-        data.position +
-        "\n" +
-        "მეილი:  " +
-        data.email +
-        "\n" +
-        "ტელ-ნომერი:  " +
-        data.phoneNumber
-    );
-  };
+  const submitForm = (data) => {};
 
   return (
     <div className="m-0">

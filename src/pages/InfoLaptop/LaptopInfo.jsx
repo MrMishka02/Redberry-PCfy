@@ -39,26 +39,7 @@ function PersonalInfo() {
     resolver: yupResolver(PcSchema),
   });
 
-  const submitForm = (data) => {
-    alert(
-      "სახელი, გვარი:  " +
-        data.laptopName +
-        " " +
-        data.brands +
-        "\n" +
-        "თიმი:  " +
-        data.cpu +
-        "\n" +
-        "პოზიცია:  " +
-        data.position +
-        "\n" +
-        "მეილი:  " +
-        data.email +
-        "\n" +
-        "ტელ-ნომერი:  " +
-        data.phoneNumber
-    );
-  };
+  const submitForm = (data) => {};
 
   const navigate = useNavigate();
 
