@@ -11,49 +11,57 @@ import {
   LogoBottom,
   Select,
 } from "../../components";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
+  getEmail,
   getFirstName,
   getLastName,
-  getFetchedTeam,
+  getPhoneNumber,
+  getPosition,
+  getTeam,
 } from "../../store/dataSlice";
 
 function PersonalInfo() {
-  const { firstName, lastName, fetchedTeam } = useSelector(
-    (state) => state.userData
-  );
-  const [selectedTeam, setSelectedTeam] = useState("");
-
+  const [fetchedTeam, setFetchedTeam] = useState([]);
+  const [fetchedPosition, setFetchedPosition] = useState([]);
+  const [selectedTeam, setSelectedTeam] = useState([]);
   const dispatch = useDispatch();
+
   useEffect(() => {
-    const getFetch = async () => {
-      const response = await fetch(
-        "https://mrmishka02.github.io/pcfy_api/pcfy.json"
-      );
-      const data = await response.json();
-      dispatch(getFetchedTeam(data));
-    };
-    getFetch();
-  }, [dispatch]);
+    fetch("https://mrmishka02.github.io/pcfy_api/pcfy.json")
+      .then((res) => res.json())
+      .then((json) => setFetchedTeam(json.teams));
+  }, []);
 
-  function handleFirstName(event) {
+  useEffect(() => {
+    fetch("https://mrmishka02.github.io/pcfy_api/pcfy.json")
+      .then((res) => res.json())
+      .then((json) => setFetchedPosition(json.positions));
+  }, []);
+
+  function storeFirstName(event) {
     dispatch(getFirstName(event.target.value));
-    console.log(firstName);
   }
-  function handleLastName(event) {
+  function storeLastName(event) {
     dispatch(getLastName(event.target.value));
-    console.log(lastName);
   }
-
   function handleChangeTeam(event) {
     setSelectedTeam(event.target.value);
+    dispatch(getTeam(event.target.value));
+  }
+  function storePosition(event) {
+    dispatch(getPosition(event.target.value));
+  }
+  function storeEmail(event) {
+    dispatch(getEmail(event.target.value));
+  }
+  function storePhoneNumber(event) {
+    dispatch(getPhoneNumber(event.target.value));
   }
 
-  let filteredTeam = fetchedTeam?.teams?.filter(
-    (item) => item.name === selectedTeam
-  );
+  let filteredTeam = fetchedTeam.filter((item) => item.name === selectedTeam);
 
-  const filteredPosition = fetchedTeam?.positions?.filter(
+  const filteredPosition = fetchedPosition.filter(
     (item) => item.team_id === filteredTeam[0]?.id
   );
 
@@ -122,7 +130,7 @@ function PersonalInfo() {
               register={register}
               errors={errors.firstName}
               name="firstName"
-              dispatch={handleFirstName}
+              dispatch={storeFirstName}
             />
           </div>
           <div className="w-[25.4375rem] sm:mt-5 sm:w-[22.375rem]">
@@ -133,7 +141,7 @@ function PersonalInfo() {
               register={register}
               errors={errors.lastName}
               name="lastName"
-              dispatch={handleLastName}
+              dispatch={storeLastName}
             />
           </div>
         </div>
@@ -147,7 +155,7 @@ function PersonalInfo() {
             name="team"
             register={register}
             errors={errors.team}
-            data={fetchedTeam.teams}
+            data={fetchedTeam}
             selectChange={handleChangeTeam}
           ></Select>
           <Select
@@ -157,7 +165,7 @@ function PersonalInfo() {
             errors={errors.position}
             data={filteredPosition}
             disabled={selectedTeam === "" ? true : false}
-            // selectChange={handleChangePosition}
+            selectChange={storePosition}
           ></Select>
         </div>
         <div
@@ -172,6 +180,7 @@ function PersonalInfo() {
             name="email"
             register={register}
             errors={errors.email}
+            dispatch={storeEmail}
           />
           <InputLabelBig
             text={"ტელეფონის ნომერი"}
@@ -180,6 +189,7 @@ function PersonalInfo() {
             name="phoneNumber"
             register={register}
             errors={errors.phoneNumber}
+            dispatch={storePhoneNumber}
           />
         </div>
         <div

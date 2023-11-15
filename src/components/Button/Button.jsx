@@ -4,7 +4,8 @@ import { useNavigate, useLocation } from "react-router-dom";
 function Button({ text, path, type }) {
   const navigate = useNavigate();
   const location = useLocation();
-  const { firstName, lastName, fetchedTeam } = useSelector(state => state.userData)
+  const { firstName, lastName, team, position, email, phoneNumber } =
+    useSelector((state) => state.userData);
 
   return (
     <button
@@ -17,7 +18,7 @@ function Button({ text, path, type }) {
         if (location.pathname === "/") {
           navigate(path);
         } else {
-          console.log(firstName, lastName, fetchedTeam);
+          console.log(firstName, lastName, team, position, email, phoneNumber);
         }
       }}
       type={type}
