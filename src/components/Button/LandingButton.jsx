@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-function Button({ text, path, type, isValid }) {
+function LandingButton({ text, path, type }) {
   const navigate = useNavigate();
 
   return (
@@ -11,11 +11,7 @@ function Button({ text, path, type, isValid }) {
     text-white hover:bg-[#317AD0] active:bg-[#1A5DAB]
     sm:mb-[1rem]"
       onClick={() => {
-        if (isValid) {
-          setTimeout(() => {
-            navigate(path);
-          }, 100);
-        }
+        navigate(path);
       }}
       type={type}
     >
@@ -24,4 +20,4 @@ function Button({ text, path, type, isValid }) {
   );
 }
 
-export default Button;
+export default LandingButton;

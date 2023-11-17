@@ -1,4 +1,4 @@
-import { Button, Logo, Wall } from "../../components";
+import { LandingButton, Logo, Wall } from "../../components";
 
 function Landing() {
   return (
@@ -7,10 +7,10 @@ function Landing() {
       <Wall />
       <div className="mt-16 flex w-[24.18rem] flex-col items-center sm:mt-[5rem]">
         <div className="mb-6 h-[3.75rem] w-[24.18rem] sm:w-[22.375rem]">
-          <Button path={"/personal-info"} text={"ᲩᲐᲜᲐᲬᲔᲠᲘᲡ ᲓᲐᲛᲐᲢᲔᲑᲐ"} />
+          <LandingButton path={"/personal-info"} text={"ᲩᲐᲜᲐᲬᲔᲠᲘᲡ ᲓᲐᲛᲐᲢᲔᲑᲐ"} />
         </div>
         <div className="h-[3.75rem] w-[24.18rem] sm:w-[22.375rem]">
-          <Button path={"/entries-list"} text={"ᲩᲐᲜᲐᲬᲔᲠᲔᲑᲘᲡ ᲡᲘᲐ"} />
+          <LandingButton path={"/entries-list"} text={"ᲩᲐᲜᲐᲬᲔᲠᲔᲑᲘᲡ ᲡᲘᲐ"} />
         </div>
       </div>
     </div>

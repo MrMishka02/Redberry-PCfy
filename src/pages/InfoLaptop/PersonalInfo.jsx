@@ -48,6 +48,7 @@ function PersonalInfo() {
   function handleChangeTeam(event) {
     setSelectedTeam(event.target.value);
     dispatch(getTeam(event.target.value));
+    localStorage.setItem("team", event.target.value);
   }
   function storePosition(event) {
     dispatch(getPosition(event.target.value));
@@ -68,12 +69,16 @@ function PersonalInfo() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm({
     resolver: yupResolver(userSchema),
   });
 
-  const submitForm = (data) => {};
+  console.log(isValid);
+  const submitForm = (data) => {
+    console.log(data);
+    localStorage.setItem("personalInfo", JSON.stringify(data));
+  };
 
   return (
     <div className="m-0">
@@ -132,7 +137,7 @@ function PersonalInfo() {
         sm:m-auto sm:mt-[16rem] sm:w-[22.375rem]"
         >
           <Select
-            defaultValue={"თიმი"}
+            defaultValue={localStorage.getItem("team") || "თიმი"}
             name="team"
             register={register}
             errors={errors.team}
@@ -178,7 +183,12 @@ function PersonalInfo() {
         xl:m-auto xl:mt-[8rem] xl:h-[4rem] sm:ml-[14.8rem] sm:mt-[4.6rem]
         sm:h-[2.875rem] sm:w-[8.25rem]"
         >
-          <Button path={"/laptop-info"} text={"შემდეგი"} type="submit" />
+          <Button
+            path={"/laptop-info"}
+            text={"შემდეგი"}
+            type="submit"
+            isValid={isValid}
+          />
         </div>
       </form>
       <div className="mt-[4.3rem] mb-6 flex w-full justify-center sm:hidden">

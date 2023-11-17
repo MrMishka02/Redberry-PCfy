@@ -34,12 +34,15 @@ function PersonalInfo() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm({
     resolver: yupResolver(PcSchema),
   });
 
-  const submitForm = (data) => {};
+  const submitForm = (data) => {
+    console.log(data);
+    localStorage.setItem("laptopInfo", JSON.stringify(data));
+  };
 
   const navigate = useNavigate();
 
@@ -218,7 +221,12 @@ function PersonalInfo() {
               უკან
             </p>
             <div className="h-[3.75rem] w-[13.7rem] sm:h-[2.875rem] sm:w-[10.125rem]">
-              <Button text={"დამახსოვრება"} path={"/show-modal"} />
+              <Button
+                text={"დამახსოვრება"}
+                path={"/show-modal"}
+                type="submit"
+                isValid={isValid}
+              />
             </div>
           </div>
         </div>

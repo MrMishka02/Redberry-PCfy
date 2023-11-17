@@ -31,7 +31,7 @@ const FileUpload = () => {
       </div>
 
       <div className="relative top-[10.5rem] left-[20rem] h-[3.75rem] w-[14.6rem] sm:hidden">
-        <Button text={"ატვირთე"} />
+        <Button text={"ატვირთე"} type="button" />
       </div>
     </div>
   );

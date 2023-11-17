@@ -17,7 +17,7 @@ export const dataSlice = createSlice({
   initialState,
   reducers: {
     getFirstName: (state, action) => {
-      state.firstName = action.payload;
+      state.users.firstName = action.payload;
     },
     getLastName: (state, action) => {
       state.lastName = action.payload;
