@@ -6,6 +6,7 @@ const InputLabel = ({
   register,
   errors,
   onChange,
+  value,
 }) => {
   return (
     <div className="flex flex-col">
@@ -24,6 +25,7 @@ const InputLabel = ({
         } border-2 border-solid  pl-2 text-base outline-none`}
         placeholder={holder}
         name={name}
+        value={value || ""}
       ></input>
       <p
         className={`mt-2 text-xs ${errors ? "text-red-500" : "text-black-500"}`}

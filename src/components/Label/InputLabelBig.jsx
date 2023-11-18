@@ -5,7 +5,8 @@ const InputLabelBig = ({
   name,
   register,
   errors,
-  dispatch,
+  onChange,
+  value,
 }) => {
   return (
     <div className="flex w-full flex-col">
@@ -18,12 +19,13 @@ const InputLabelBig = ({
       </p>
       <input
         {...register(name)}
-        onChange={dispatch}
+        onChange={onChange}
         className={`${
           errors ? "border-[red]" : "border-#8AC0E2"
         } h-[3.75rem] w-full rounded-[0.5rem] border-2 border-solid  pl-2 text-base outline-none`}
         placeholder={holder}
         name={name}
+        value={value || ""}
       ></input>
       <p
         className={`mt-2 text-xs ${errors ? "text-red-500" : "text-black-500"}`}

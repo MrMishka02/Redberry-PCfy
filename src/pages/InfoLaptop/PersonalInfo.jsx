@@ -29,12 +29,24 @@ function PersonalInfo() {
       .then((json) => setFetchedPosition(json.positions));
   }, []);
 
-  function handleChangeTeam(event) {
+  function storeFirstName(event) {
+    localStorage.setItem("firstName", event.target.value);
+  }
+  function storeLastName(event) {
+    localStorage.setItem("lastName", event.target.value);
+  }
+  function storeTeam(event) {
     setSelectedTeam(event.target.value);
     localStorage.setItem("team", event.target.value);
   }
-  function handleChangeInput(event) {
-    localStorage.setItem("firstName", event.target.value);
+  function storePosition(event) {
+    localStorage.setItem("position", event.target.value);
+  }
+  function storeEmail(event) {
+    localStorage.setItem("email", event.target.value);
+  }
+  function storePhoneNumber(event) {
+    localStorage.setItem("phoneNumber", event.target.value);
   }
 
   let filteredTeam = fetchedTeam.filter((item) => item.name === selectedTeam);
@@ -86,25 +98,26 @@ function PersonalInfo() {
         >
           <div className="w-[25.4375rem] sm:w-[22.375rem]">
             <InputLabel
-              value="Misha"
+              value={localStorage.getItem("firstName")}
               text={"სახელი"}
               holder={"გრიშა"}
               hint={"მინიმუმ 2 სიმბოლო, ქართული ასოები"}
               register={register}
               errors={errors.firstName}
               name="firstName"
-              onChange={handleChangeInput}
+              onChange={storeFirstName}
             />
           </div>
           <div className="w-[25.4375rem] sm:mt-5 sm:w-[22.375rem]">
             <InputLabel
+              value={localStorage.getItem("lastName")}
               text={"გვარი"}
               holder={"ბაგრატიონი"}
               hint={"მინიმუმ 2 სიმბოლო, ქართული ასოები"}
               register={register}
               errors={errors.lastName}
               name="lastName"
-              onChange={handleChangeInput}
+              onChange={storeLastName}
             />
           </div>
         </div>
@@ -119,15 +132,16 @@ function PersonalInfo() {
             register={register}
             errors={errors.team}
             data={fetchedTeam}
-            selectChange={handleChangeTeam}
+            selectChange={storeTeam}
           ></Select>
           <Select
-            defaultValue={"პოზიცია"}
+            defaultValue={localStorage.getItem("position") || "პოზიცია"}
             name="position"
             register={register}
             errors={errors.position}
             data={filteredPosition}
             disabled={selectedTeam === "" ? true : false}
+            selectChange={storePosition}
           ></Select>
         </div>
         <div
@@ -136,20 +150,24 @@ function PersonalInfo() {
         sm:w-[22.375rem] "
         >
           <InputLabelBig
+            value={localStorage.getItem("email")}
             text={"მეილი"}
             holder={"grish22@redberry.ge"}
             hint={"უნდა მთავრდებოდეს @redberry.ge-ით"}
             name="email"
             register={register}
             errors={errors.email}
+            onChange={storeEmail}
           />
           <InputLabelBig
+            value={localStorage.getItem("phoneNumber")}
             text={"ტელეფონის ნომერი"}
             holder={"+995 598 00 07 01"}
             hint={"უნდა აკმაყოფილებდეს ქართული მობ-ნომრის ფორმატს"}
             name="phoneNumber"
             register={register}
             errors={errors.phoneNumber}
+            onChange={storePhoneNumber}
           />
         </div>
         <div

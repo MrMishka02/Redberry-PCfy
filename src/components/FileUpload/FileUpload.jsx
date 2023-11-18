@@ -13,7 +13,7 @@ const FileUpload = () => {
           className="relative top-[6.6rem] m-auto h-[4.75rem] w-[12.18rem] select-none
        text-center text-[1.25rem] font-medium leading-[2.375rem] text-[#4386A9] sm:hidden"
         >
-          ჩააგდე ან ატვირთე ლეპტოპის ფოტო
+          ატვირთე ლეპტოპის ფოტო
         </p>
       </div>
       <img
