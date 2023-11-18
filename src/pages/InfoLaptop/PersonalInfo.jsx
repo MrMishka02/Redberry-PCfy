@@ -11,21 +11,11 @@ import {
   LogoBottom,
   Select,
 } from "../../components";
-import { useDispatch } from "react-redux";
-import {
-  getEmail,
-  getFirstName,
-  getLastName,
-  getPhoneNumber,
-  getPosition,
-  getTeam,
-} from "../../store/dataSlice";
 
 function PersonalInfo() {
   const [fetchedTeam, setFetchedTeam] = useState([]);
   const [fetchedPosition, setFetchedPosition] = useState([]);
   const [selectedTeam, setSelectedTeam] = useState([]);
-  const dispatch = useDispatch();
 
   useEffect(() => {
     fetch("https://mrmishka02.github.io/pcfy_api/pcfy.json")
@@ -39,25 +29,12 @@ function PersonalInfo() {
       .then((json) => setFetchedPosition(json.positions));
   }, []);
 
-  function storeFirstName(event) {
-    dispatch(getFirstName(event.target.value));
-  }
-  function storeLastName(event) {
-    dispatch(getLastName(event.target.value));
-  }
   function handleChangeTeam(event) {
     setSelectedTeam(event.target.value);
-    dispatch(getTeam(event.target.value));
     localStorage.setItem("team", event.target.value);
   }
-  function storePosition(event) {
-    dispatch(getPosition(event.target.value));
-  }
-  function storeEmail(event) {
-    dispatch(getEmail(event.target.value));
-  }
-  function storePhoneNumber(event) {
-    dispatch(getPhoneNumber(event.target.value));
+  function handleChangeInput(event) {
+    localStorage.setItem("firstName", event.target.value);
   }
 
   let filteredTeam = fetchedTeam.filter((item) => item.name === selectedTeam);
@@ -74,7 +51,6 @@ function PersonalInfo() {
     resolver: yupResolver(userSchema),
   });
 
-  console.log(isValid);
   const submitForm = (data) => {
     console.log(data);
     localStorage.setItem("personalInfo", JSON.stringify(data));
@@ -110,13 +86,14 @@ function PersonalInfo() {
         >
           <div className="w-[25.4375rem] sm:w-[22.375rem]">
             <InputLabel
+              value="Misha"
               text={"სახელი"}
               holder={"გრიშა"}
               hint={"მინიმუმ 2 სიმბოლო, ქართული ასოები"}
               register={register}
               errors={errors.firstName}
               name="firstName"
-              dispatch={storeFirstName}
+              onChange={handleChangeInput}
             />
           </div>
           <div className="w-[25.4375rem] sm:mt-5 sm:w-[22.375rem]">
@@ -127,7 +104,7 @@ function PersonalInfo() {
               register={register}
               errors={errors.lastName}
               name="lastName"
-              dispatch={storeLastName}
+              onChange={handleChangeInput}
             />
           </div>
         </div>
@@ -151,7 +128,6 @@ function PersonalInfo() {
             errors={errors.position}
             data={filteredPosition}
             disabled={selectedTeam === "" ? true : false}
-            selectChange={storePosition}
           ></Select>
         </div>
         <div
@@ -166,7 +142,6 @@ function PersonalInfo() {
             name="email"
             register={register}
             errors={errors.email}
-            dispatch={storeEmail}
           />
           <InputLabelBig
             text={"ტელეფონის ნომერი"}
@@ -175,7 +150,6 @@ function PersonalInfo() {
             name="phoneNumber"
             register={register}
             errors={errors.phoneNumber}
-            dispatch={storePhoneNumber}
           />
         </div>
         <div

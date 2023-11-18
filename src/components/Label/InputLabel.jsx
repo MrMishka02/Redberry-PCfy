@@ -5,7 +5,7 @@ const InputLabel = ({
   name,
   register,
   errors,
-  dispatch,
+  onChange,
 }) => {
   return (
     <div className="flex flex-col">
@@ -18,7 +18,7 @@ const InputLabel = ({
       </p>
       <input
         {...register(name)}
-        onChange={dispatch}
+        onChange={onChange}
         className={`h-[3.75rem] w-full rounded-[0.5rem] ${
           errors ? "border-[red]" : "border-#8AC0E2"
         } border-2 border-solid  pl-2 text-base outline-none`}
